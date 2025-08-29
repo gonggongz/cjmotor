@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Produk - Vespa GTV Officina 8 - CJ Motor</title>
+    
+    <!-- Memuat Tailwind CSS untuk styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Memuat font Inter dari Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .thumbnail-active {
+            border-color: #22d3ee; /* Warna cyan-400 */
+            opacity: 1;
+        }
+        /* Styling untuk efek zoom pada gambar utama */
+        .image-zoom-container {
+            overflow: hidden;
+            border-radius: 0.375rem; /* rounded-md */
+        }
+        .image-zoom-container img {
+            transition: transform 0.3s ease-in-out;
+        }
+        .image-zoom-container:hover img {
+            transform: scale(1.1);
+        }
+        /* Menyembunyikan scrollbar untuk slider thumbnail */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        /* BARU: Styling untuk pagination dots */
+        .pagination-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #6b7280; /* gray-500 */
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .pagination-dot-active {
+            background-color: #22d3ee; /* cyan-400 */
+            transform: scale(1.25);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white antialiased">
+
+    <!-- Kontainer Utama -->
+    <div id="main-content" class="container mx-auto px-6 pt-4 pb-8">
+
+        <!-- Header / Bagian Atas (Sama seperti halaman utama) -->
+        <header class="sticky top-0 z-40 flex flex-col items-center space-y-2 bg-gray-900/80 backdrop-blur-sm py-4 shadow-lg -mx-6 px-6">
+            <a href="#" class="flex items-center space-x-2">
+                <img src="https://i.postimg.cc/mhNZ7WrD/Asset-2.png" 
+                     alt="CJ Motor Logo" 
+                     class="h-7 w-auto">
+                <span class="text-xs font-bold text-white">CJ Motor</span>
+            </a>
+            <nav class="flex flex-wrap justify-center gap-x-6 sm:gap-x-8 text-sm">
+                <a href="#beranda" class="hover:text-cyan-400 transition-colors duration-300">Beranda</a>
+                <a href="#tentang-kami" class="hover:text-cyan-400 transition-colors duration-300">Tentang</a>
+                <a href="#layanan-kami" class="hover:text-cyan-400 transition-colors duration-300">Layanan</a>
+                <a href="#lokasi-kami" class="hover:text-cyan-400 transition-colors duration-300">Lokasi</a>
+            </nav>
+        </header>
+
+        <!-- Product Detail Section -->
+        <main class="mt-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                
+                <!-- Galeri Gambar Produk -->
+                <div class="bg-gray-800 p-4 rounded-lg shadow-xl sticky top-28">
+                    <div class="image-zoom-container mb-4">
+                        <img id="main-product-image" src="https://i.postimg.cc/tJfTLkGb/gtv-blu-officina-01-1.png" alt="Vespa GTV - Tampak Kanan" class="w-full h-auto object-contain rounded-md">
+                    </div>
+                    
+                    <!-- Slider Thumbnail Gaya Swiper -->
+                    <div class="relative mt-4">
+                        <div id="thumbnail-slider" class="flex items-center space-x-2 overflow-x-auto scroll-smooth pb-2 scrollbar-hide">
+                            <img src="https://i.postimg.cc/tJfTLkGb/gtv-blu-officina-01-1.png" alt="Vespa GTV - Tampak Kiri" class="product-thumbnail w-24 h-24 object-contain cursor-pointer rounded-md border-2 border-transparent hover:border-cyan-400 transition-all duration-300 flex-shrink-0">
+                            <img src="https://i.postimg.cc/y6rkg1gG/gtv-blu-officina-01-2.png" alt="Vespa GTV - Tampak Menyerong Kiri" class="product-thumbnail w-24 h-24 object-contain cursor-pointer rounded-md border-2 border-transparent hover:border-cyan-400 transition-all duration-300 flex-shrink-0">
+                            <img src="https://i.postimg.cc/m2zh7v7g/gtv-blu-officina-01-3.png" alt="Vespa GTV - Tampak Depan" class="product-thumbnail w-24 h-24 object-contain cursor-pointer rounded-md border-2 border-transparent hover:border-cyan-400 transition-all duration-300 flex-shrink-0">
+                            <img src="https://i.postimg.cc/VLxvgKFB/gtv-blu-officina-01-4.png" alt="Vespa GTV - Tampak Menyerong Kanan" class="product-thumbnail w-24 h-24 object-contain cursor-pointer rounded-md border-2 border-transparent hover:border-cyan-400 transition-all duration-300 flex-shrink-0">
+                            <img src="https://i.postimg.cc/T3nw4n78/gtv-blu-officina-01-5.png" alt="Vespa GTV - Tampak Kanan" class="product-thumbnail w-24 h-24 object-contain cursor-pointer rounded-md border-2 border-transparent hover:border-cyan-400 transition-all duration-300 flex-shrink-0">
+                        </div>
+                        <!-- BARU: Pagination Dots -->
+                        <div id="slider-pagination" class="flex justify-center items-center space-x-2 pt-4"></div>
+                    </div>
+                </div>
+
+                <!-- Informasi Produk -->
+                <div class="bg-gray-800 p-8 rounded-lg shadow-xl">
+                    <h1 class="text-4xl font-bold mb-3 text-cyan-400">Vespa GTV Officina 8</h1>
+                    <p class="text-gray-300 mb-6">
+                        Memadukan legenda dari masa lalu dengan semangat balap modern. Vespa GTV Officina 8 adalah ikon gaya yang sporty, dirancang bagi mereka yang berani tampil beda dengan sentuhan klasik yang tak lekang oleh waktu.
+                    </p>
+
+                    <!-- Bagian Fitur Unggulan Baru -->
+                    <div class="my-6 grid grid-cols-2 sm:grid-cols-2 gap-4">
+                        <div class="flex items-start space-x-3 p-3 bg-gray-700/50 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-cyan-400 flex-shrink-0" fill="none" viewBox="0 0 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                            <div>
+                                <h4 class="font-semibold">Performa Tinggi</h4>
+                                <p class="text-xs text-gray-400">Mesin 300cc HPE untuk akselerasi responsif.</p>
+                            </div>
+                        </div>
+                         <div class="flex items-start space-x-3 p-3 bg-gray-700/50 rounded-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-cyan-400 flex-shrink-0" fill="none" viewBox="0 0 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            <div>
+                                <h4 class="font-semibold">Keamanan Canggih</h4>
+                                <p class="text-xs text-gray-400">Dilengkapi sistem rem ABS dan kontrol traksi ASR.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border-t border-b border-gray-700 py-6 mb-6">
+                        <h3 class="text-xl font-semibold mb-4">Spesifikasi Utama</h3>
+                        <ul class="space-y-3 text-gray-400">
+                            <li class="flex justify-between"><span>Mesin:</span> <span class="font-medium text-white text-right">300cc HPE, 4-tak, silinder tunggal</span></li>
+                            <li class="flex justify-between"><span>Sistem Pendingin:</span> <span class="font-medium text-white">Cairan</span></li>
+                            <li class="flex justify-between"><span>Sistem Rem:</span> <span class="font-medium text-white">ABS & ASR</span></li>
+                            <li class="flex justify-between"><span>Lampu Depan:</span> <span class="font-medium text-white">Full LED Technology</span></li>
+                            <li class="flex justify-between"><span>Kapasitas Tangki:</span> <span class="font-medium text-white">8.5 Liter</span></li>
+                        </ul>
+                    </div>
+
+                    <p class="text-sm text-gray-500 mb-6">
+                        *Spesifikasi dapat berubah sewaktu-waktu. Untuk informasi harga dan ketersediaan, silakan hubungi kami.
+                    </p>
+
+                    <a href="#lokasi-kami" class="w-full text-center bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-4 px-6 rounded-lg transition-transform duration-300 inline-block transform hover:scale-105 shadow-lg shadow-cyan-500/20">
+                        Minta Penawaran
+                    </a>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer / Bagian Bawah -->
+        <footer class="flex justify-end text-gray-500 border-t border-gray-700 pt-6 mt-24">
+            <p class="text-xs">&copy; 2024 CJ Motor. Hak Cipta Dilindungi.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mainImage = document.getElementById('main-product-image');
+            const thumbnails = document.querySelectorAll('.product-thumbnail');
+            const slider = document.getElementById('thumbnail-slider');
+            const paginationContainer = document.getElementById('slider-pagination');
+            let dots = [];
+
+            // --- Fungsi untuk memperbarui semua elemen yang aktif ---
+            function updateActiveStates(activeIndex) {
+                if (activeIndex < 0 || activeIndex >= thumbnails.length) return;
+
+                // 1. Perbarui gambar utama
+                const activeThumbnail = thumbnails[activeIndex];
+                mainImage.src = activeThumbnail.src;
+                mainImage.alt = activeThumbnail.alt;
+
+                // 2. Perbarui gaya thumbnail
+                thumbnails.forEach((t, i) => {
+                    t.classList.toggle('thumbnail-active', i === activeIndex);
+                    t.classList.toggle('opacity-70', i !== activeIndex);
+                });
+
+                // 3. Perbarui gaya pagination dot
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('pagination-dot-active', i === activeIndex);
+                });
+            }
+
+            // --- Fungsi terpusat untuk pindah ke slide tertentu ---
+            function goToSlide(index) {
+                if (index < 0 || index >= thumbnails.length) return;
+                const targetThumbnail = thumbnails[index];
+                
+                // Scroll ke thumbnail yang dituju
+                targetThumbnail.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                
+                // Langsung perbarui state agar UI responsif
+                updateActiveStates(index);
+            }
+
+            // --- Buat pagination dots dan tambahkan event listener ---
+            thumbnails.forEach((_, index) => {
+                const dot = document.createElement('div');
+                dot.classList.add('pagination-dot');
+                dot.addEventListener('click', () => {
+                    goToSlide(index);
+                });
+                paginationContainer.appendChild(dot);
+                dots.push(dot);
+            });
+            
+            // --- Atur event listener untuk klik pada thumbnail ---
+            thumbnails.forEach((thumbnail, index) => {
+                thumbnail.addEventListener('click', () => {
+                    goToSlide(index);
+                });
+            });
+
+            // --- Atur listener saat slider di-scroll (untuk drag/swipe) ---
+            let scrollEndTimer;
+            slider.addEventListener('scroll', () => {
+                clearTimeout(scrollEndTimer);
+                // Tunggu hingga scroll selesai untuk menentukan item yang aktif
+                scrollEndTimer = setTimeout(() => {
+                    const sliderRect = slider.getBoundingClientRect();
+                    let closestIndex = -1;
+                    let minDistance = Infinity;
+
+                    // Cari thumbnail yang posisinya paling dekat dengan tengah slider
+                    thumbnails.forEach((thumbnail, index) => {
+                        const thumbRect = thumbnail.getBoundingClientRect();
+                        const midPoint = sliderRect.left + sliderRect.width / 2;
+                        const thumbMidPoint = thumbRect.left + thumbRect.width / 2;
+                        const distance = Math.abs(midPoint - thumbMidPoint);
+
+                        if (distance < minDistance) {
+                            minDistance = distance;
+                            closestIndex = index;
+                        }
+                    });
+                    
+                    // Hanya perbarui state, jangan panggil goToSlide untuk menghindari loop scroll
+                    updateActiveStates(closestIndex);
+                }, 150); 
+            });
+
+            // Inisialisasi tampilan awal
+            updateActiveStates(0);
+        });
+    </script>
+
+</body>
+</html>
+
