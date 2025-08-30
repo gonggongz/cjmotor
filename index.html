@@ -107,22 +107,29 @@
                 <a href="website_template_sederhana.html" class="hover:text-cyan-400 transition-colors duration-300">Beranda</a>
                 <!-- Menu Dropdown Produk -->
                 <div class="relative" id="product-menu">
-                    <div class="flex items-center gap-1 hover:text-cyan-400 transition-colors duration-300 cursor-pointer">
+                    <div id="product-menu-button" class="flex items-center gap-1 hover:text-cyan-400 transition-colors duration-300 cursor-pointer">
                         <span>Produk</span>
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </div>
                     <!-- Panel Mega Menu -->
-                    <div id="product-menu-dropdown" class="absolute left-1/2 -translate-x-1/2 mt-2 bg-gray-800 rounded-md shadow-lg z-50 hidden p-4 flex gap-4" style="width: 400px;">
-                        <!-- Daftar Produk -->
-                        <div class="w-1/2 flex flex-col space-y-1">
-                            <a href="halaman-produk.html" class="block px-3 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white rounded-md" data-preview-image="https://i.postimg.cc/FRFKxNPw/1-946-snake-01-2.png">Vespa 946 Dragon</a>
-                            <a href="halaman-produk-2.html" class="block px-3 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white rounded-md" data-preview-image="https://i.postimg.cc/tTr4SwwJ/2-gtv_blu_officina_01_3.png">Vespa GTV</a>
-                            <a href="halaman-produk.html" class="block px-3 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white rounded-md" data-preview-image="https://i.postimg.cc/0Nsjbp7k/3-sprint_blu_officina_01_3.png">Vespa Sprint</a>
-                            <!-- Tambahkan produk lain di sini -->
-                        </div>
-                        <!-- Pratinjau Gambar -->
-                        <div class="w-1/2 flex items-center justify-center">
-                            <img id="product-preview-image" src="https://i.postimg.cc/FRFKxNPw/1-946-snake-01-2.png" alt="Pratinjau Produk" class="w-full h-auto object-contain transition-opacity duration-300">
+                    <div id="product-menu-dropdown" class="absolute left-1/2 -translate-x-1/2 mt-2 bg-gray-800 rounded-md shadow-lg z-50 hidden p-4" style="width: 450px;">
+                        <div class="grid grid-cols-2 gap-4">
+                            <!-- Produk Card 1 -->
+                            <a href="halaman-produk.html" class="block text-center p-2 rounded-lg hover:bg-gray-700 transition-colors duration-200">
+                                <img src="https://i.postimg.cc/FRFKxNPw/1-946-snake-01-2.png" alt="Vespa 946 Dragon" class="w-full h-24 object-contain mb-2">
+                                <span class="text-sm text-gray-300">Vespa 946 Dragon</span>
+                            </a>
+                            <!-- Produk Card 2 -->
+                             <a href="halaman-produk-2.html" class="block text-center p-2 rounded-lg hover:bg-gray-700 transition-colors duration-200">
+                                <img src="https://i.postimg.cc/tTr4SwwJ/2-gtv_blu_officina_01_3.png" alt="Vespa GTV" class="w-full h-24 object-contain mb-2">
+                                <span class="text-sm text-gray-300">Vespa GTV</span>
+                            </a>
+                            <!-- Produk Card 3 -->
+                            <a href="halaman-produk.html" class="block text-center p-2 rounded-lg hover:bg-gray-700 transition-colors duration-200">
+                                <img src="https://i.postimg.cc/0Nsjbp7k/3-sprint_blu_officina_01_3.png" alt="Vespa Sprint" class="w-full h-24 object-contain mb-2">
+                                <span class="text-sm text-gray-300">Vespa Sprint</span>
+                            </a>
+                            <!-- Tambahkan lebih banyak produk di sini jika diperlukan -->
                         </div>
                     </div>
                 </div>
@@ -389,9 +396,8 @@
             const splashScreen = document.getElementById('splash-screen');
             const mainContent = document.getElementById('main-content');
             const productMenu = document.getElementById('product-menu');
+            const productMenuButton = document.getElementById('product-menu-button');
             const productMenuDropdown = document.getElementById('product-menu-dropdown');
-            const previewImage = document.getElementById('product-preview-image');
-            let menuTimeout;
 
             // --- Logika Splash Screen ---
             setTimeout(() => {
@@ -407,30 +413,17 @@
                 startAboutSlider();
             }, 3000);
 
-            // --- Logika Menu Dropdown & Pratinjau Produk ---
-            if (productMenu && productMenuDropdown && previewImage) {
-                const productLinks = productMenuDropdown.querySelectorAll('a[data-preview-image]');
-                const defaultPreviewImage = productLinks.length > 0 ? productLinks[0].dataset.previewImage : '';
-
-                productMenu.addEventListener('mouseenter', () => {
-                    clearTimeout(menuTimeout);
-                    previewImage.src = defaultPreviewImage;
-                    productMenuDropdown.classList.remove('hidden');
+            // --- Logika Menu Dropdown Produk (Click) ---
+            if (productMenu && productMenuButton && productMenuDropdown) {
+                productMenuButton.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    productMenuDropdown.classList.toggle('hidden');
                 });
 
-                productMenu.addEventListener('mouseleave', () => {
-                    menuTimeout = setTimeout(() => {
+                window.addEventListener('click', (event) => {
+                    if (!productMenu.contains(event.target) && !productMenuDropdown.classList.contains('hidden')) {
                         productMenuDropdown.classList.add('hidden');
-                    }, 200);
-                });
-
-                productLinks.forEach(link => {
-                    link.addEventListener('mouseenter', () => {
-                        const imageUrl = link.dataset.previewImage;
-                        if (imageUrl) {
-                            previewImage.src = imageUrl;
-                        }
-                    });
+                    }
                 });
             }
 
@@ -470,178 +463,6 @@
                 slides[currentSlide].classList.remove('opacity-0');
             }, 4000);
         }
-    </script>
-
-</body>
-</html>
-```
-
-```html:Halaman Produk:halaman-produk.html
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detail Produk - Vespa 946 Dragon - CJ Motor</title>
-    
-    <!-- Memuat Tailwind CSS untuk styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Memuat font Inter dari Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        .thumbnail-active {
-            border-color: #22d3ee; /* Warna cyan-400 */
-        }
-    </style>
-</head>
-<body class="bg-gray-900 text-white antialiased">
-
-    <!-- Kontainer Utama -->
-    <div id="main-content" class="container mx-auto px-6 pt-4 pb-8">
-
-        <!-- Header / Bagian Atas -->
-        <header class="sticky top-0 z-40 flex flex-col items-center space-y-2 bg-gray-900 py-4 shadow-lg -mx-6 px-6">
-            <a href="website_template_sederhana.html" class="flex items-center space-x-2">
-                <img src="https://i.postimg.cc/mhNZ7WrD/Asset-2.png" 
-                     alt="CJ Motor Logo" 
-                     class="h-7 w-auto">
-                <span class="text-xs font-bold text-white">CJ Motor</span>
-            </a>
-            <nav class="flex flex-wrap justify-center items-center gap-x-8">
-                <a href="website_template_sederhana.html" class="hover:text-cyan-400 transition-colors duration-300">Beranda</a>
-                <!-- Menu Dropdown Produk -->
-                <div class="relative" id="product-menu">
-                     <div class="flex items-center gap-1 hover:text-cyan-400 transition-colors duration-300 cursor-pointer">
-                        <span>Produk</span>
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </div>
-                    <!-- Panel Mega Menu -->
-                    <div id="product-menu-dropdown" class="absolute left-1/2 -translate-x-1/2 mt-2 bg-gray-800 rounded-md shadow-lg z-50 hidden p-4 flex gap-4" style="width: 400px;">
-                        <!-- Daftar Produk -->
-                        <div class="w-1/2 flex flex-col space-y-1">
-                            <a href="halaman-produk.html" class="block px-3 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white rounded-md" data-preview-image="https://i.postimg.cc/FRFKxNPw/1-946-snake-01-2.png">Vespa 946 Dragon</a>
-                            <a href="halaman-produk-2.html" class="block px-3 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white rounded-md" data-preview-image="https://i.postimg.cc/tTr4SwwJ/2-gtv_blu_officina_01_3.png">Vespa GTV</a>
-                            <a href="halaman-produk.html" class="block px-3 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white rounded-md" data-preview-image="https://i.postimg.cc/0Nsjbp7k/3-sprint_blu_officina_01_3.png">Vespa Sprint</a>
-                            <!-- Tambahkan produk lain di sini -->
-                        </div>
-                        <!-- Pratinjau Gambar -->
-                        <div class="w-1/2 flex items-center justify-center">
-                            <img id="product-preview-image" src="https://i.postimg.cc/FRFKxNPw/1-946-snake-01-2.png" alt="Pratinjau Produk" class="w-full h-auto object-contain transition-opacity duration-300">
-                        </div>
-                    </div>
-                </div>
-                <a href="website_template_sederhana.html#tentang-kami" class="hover:text-cyan-400 transition-colors duration-300">Tentang</a>
-                <a href="website_template_sederhana.html#layanan-kami" class="hover:text-cyan-400 transition-colors duration-300">Layanan</a>
-                <a href="website_template_sederhana.html#lokasi-kami" class="hover:text-cyan-400 transition-colors duration-300">Lokasi</a>
-            </nav>
-        </header>
-
-        <!-- Product Detail Section -->
-        <main class="mt-12">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-                
-                <!-- Galeri Gambar Produk -->
-                <div class="bg-gray-800 p-4 rounded-lg shadow-xl sticky top-28">
-                    <img id="main-product-image" src="https://i.postimg.cc/FRFKxNPw/1-946-snake-01-2.png" alt="Vespa 946 Dragon" class="w-full h-auto object-contain rounded-md transition-all duration-300">
-                    <!-- Galeri Thumbnail -->
-                    <div class="mt-4 grid grid-cols-4 gap-4">
-                        <img src="https://i.postimg.cc/FRFKxNPw/1-946-snake-01-2.png" alt="Thumbnail 1" class="product-thumbnail w-full h-24 object-contain cursor-pointer rounded-md border-2 border-transparent hover:border-cyan-400 transition-colors duration-300 thumbnail-active">
-                        <img src="https://placehold.co/300x200/1F2937/FFFFFF?text=Tampak+Samping" alt="Thumbnail 2" class="product-thumbnail w-full h-24 object-contain cursor-pointer rounded-md border-2 border-transparent hover:border-cyan-400 transition-colors duration-300">
-                        <img src="https://placehold.co/300x200/1F2937/FFFFFF?text=Detail+Lampu" alt="Thumbnail 3" class="product-thumbnail w-full h-24 object-contain cursor-pointer rounded-md border-2 border-transparent hover:border-cyan-400 transition-colors duration-300">
-                        <img src="https://placehold.co/300x200/1F2937/FFFFFF?text=Detail+Jok" alt="Thumbnail 4" class="product-thumbnail w-full h-24 object-contain cursor-pointer rounded-md border-2 border-transparent hover:border-cyan-400 transition-colors duration-300">
-                    </div>
-                </div>
-
-                <!-- Informasi Produk -->
-                <div class="bg-gray-800 p-8 rounded-lg shadow-xl">
-                    <h1 class="text-4xl font-bold mb-3 text-cyan-400">Vespa 946 Dragon</h1>
-                    <p class="text-gray-300 mb-6">
-                        Merayakan Tahun Naga, Vespa 946 Dragon adalah mahakarya edisi terbatas yang memadukan keanggunan Italia dengan kekuatan mitologi Timur. Sebuah koleksi eksklusif bagi para pengendara sejati.
-                    </p>
-
-                    <div class="border-t border-b border-gray-700 py-6 mb-6">
-                        <h3 class="text-xl font-semibold mb-4">Spesifikasi Utama</h3>
-                        <ul class="space-y-3 text-gray-400">
-                            <li class="flex justify-between"><span>Mesin:</span> <span class="font-medium text-white">150cc, 3-valve, silinder tunggal</span></li>
-                            <li class="flex justify-between"><span>Sistem Pendingin:</span> <span class="font-medium text-white">Udara</span></li>
-                            <li class="flex justify-between"><span>Sistem Rem:</span> <span class="font-medium text-white">ABS & ASR</span></li>
-                            <li class="flex justify-between"><span>Body:</span> <span class="font-medium text-white">Monocoque Steel</span></li>
-                            <li class="flex justify-between"><span>Fitur:</span> <span class="font-medium text-white">Edisi Terbatas, Detail Naga</span></li>
-                        </ul>
-                    </div>
-
-                    <p class="text-sm text-gray-500 mb-6">
-                        *Spesifikasi dapat berubah sewaktu-waktu. Untuk informasi harga dan ketersediaan, silakan hubungi kami.
-                    </p>
-
-                    <a href="website_template_sederhana.html#lokasi-kami" class="w-full text-center bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-4 px-6 rounded-lg transition-transform duration-300 inline-block transform hover:scale-105">
-                        Minta Penawaran
-                    </a>
-                </div>
-            </div>
-        </main>
-
-        <!-- Footer / Bagian Bawah -->
-        <footer class="flex justify-end text-gray-500 border-t border-gray-700 pt-6 mt-24">
-            <p class="text-xs">&copy; 2024 CJ Motor. Hak Cipta Dilindungi.</p>
-        </footer>
-
-    </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // --- Logika Galeri Thumbnail ---
-            const mainImage = document.getElementById('main-product-image');
-            const thumbnails = document.querySelectorAll('.product-thumbnail');
-            thumbnails.forEach(thumbnail => {
-                thumbnail.addEventListener('click', function() {
-                    mainImage.src = this.src;
-                    thumbnails.forEach(t => t.classList.remove('thumbnail-active'));
-                    this.classList.add('thumbnail-active');
-                });
-            });
-
-            // --- Logika Menu Dropdown & Pratinjau Produk ---
-            const productMenu = document.getElementById('product-menu');
-            const productMenuDropdown = document.getElementById('product-menu-dropdown');
-            const previewImage = document.getElementById('product-preview-image');
-            let menuTimeout;
-
-            if (productMenu && productMenuDropdown && previewImage) {
-                const productLinks = productMenuDropdown.querySelectorAll('a[data-preview-image]');
-                const defaultPreviewImage = productLinks.length > 0 ? productLinks[0].dataset.previewImage : '';
-
-                productMenu.addEventListener('mouseenter', () => {
-                    clearTimeout(menuTimeout);
-                    previewImage.src = defaultPreviewImage;
-                    productMenuDropdown.classList.remove('hidden');
-                });
-
-                productMenu.addEventListener('mouseleave', () => {
-                    menuTimeout = setTimeout(() => {
-                        productMenuDropdown.classList.add('hidden');
-                    }, 200);
-                });
-
-                productLinks.forEach(link => {
-                    link.addEventListener('mouseenter', () => {
-                        const imageUrl = link.dataset.previewImage;
-                        if (imageUrl) {
-                            previewImage.src = imageUrl;
-                        }
-                    });
-                });
-            }
-        });
     </script>
 
 </body>
@@ -692,22 +513,25 @@
                 <a href="website_template_sederhana.html" class="hover:text-cyan-400 transition-colors duration-300">Beranda</a>
                 <!-- Menu Dropdown Produk -->
                 <div class="relative" id="product-menu">
-                    <div class="flex items-center gap-1 hover:text-cyan-400 transition-colors duration-300 cursor-pointer">
+                    <div id="product-menu-button" class="flex items-center gap-1 hover:text-cyan-400 transition-colors duration-300 cursor-pointer">
                         <span>Produk</span>
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </div>
                     <!-- Panel Mega Menu -->
-                    <div id="product-menu-dropdown" class="absolute left-1/2 -translate-x-1/2 mt-2 bg-gray-800 rounded-md shadow-lg z-50 hidden p-4 flex gap-4" style="width: 400px;">
-                        <!-- Daftar Produk -->
-                        <div class="w-1/2 flex flex-col space-y-1">
-                            <a href="halaman-produk.html" class="block px-3 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white rounded-md" data-preview-image="https://i.postimg.cc/FRFKxNPw/1-946-snake-01-2.png">Vespa 946 Dragon</a>
-                            <a href="halaman-produk-2.html" class="block px-3 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white rounded-md" data-preview-image="https://i.postimg.cc/tTr4SwwJ/2-gtv_blu_officina_01_3.png">Vespa GTV</a>
-                            <a href="halaman-produk.html" class="block px-3 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white rounded-md" data-preview-image="https://i.postimg.cc/0Nsjbp7k/3-sprint_blu_officina_01_3.png">Vespa Sprint</a>
-                            <!-- Tambahkan produk lain di sini -->
-                        </div>
-                        <!-- Pratinjau Gambar -->
-                        <div class="w-1/2 flex items-center justify-center">
-                            <img id="product-preview-image" src="https://i.postimg.cc/FRFKxNPw/1-946-snake-01-2.png" alt="Pratinjau Produk" class="w-full h-auto object-contain transition-opacity duration-300">
+                    <div id="product-menu-dropdown" class="absolute left-1/2 -translate-x-1/2 mt-2 bg-gray-800 rounded-md shadow-lg z-50 hidden p-4" style="width: 450px;">
+                        <div class="grid grid-cols-2 gap-4">
+                            <a href="halaman-produk.html" class="block text-center p-2 rounded-lg hover:bg-gray-700 transition-colors duration-200">
+                                <img src="https://i.postimg.cc/FRFKxNPw/1-946-snake-01-2.png" alt="Vespa 946 Dragon" class="w-full h-24 object-contain mb-2">
+                                <span class="text-sm text-gray-300">Vespa 946 Dragon</span>
+                            </a>
+                             <a href="halaman-produk-2.html" class="block text-center p-2 rounded-lg hover:bg-gray-700 transition-colors duration-200">
+                                <img src="https://i.postimg.cc/tTr4SwwJ/2-gtv_blu_officina_01_3.png" alt="Vespa GTV" class="w-full h-24 object-contain mb-2">
+                                <span class="text-sm text-gray-300">Vespa GTV</span>
+                            </a>
+                            <a href="halaman-produk.html" class="block text-center p-2 rounded-lg hover:bg-gray-700 transition-colors duration-200">
+                                <img src="https://i.postimg.cc/0Nsjbp7k/3-sprint_blu_officina_01_3.png" alt="Vespa Sprint" class="w-full h-24 object-contain mb-2">
+                                <span class="text-sm text-gray-300">Vespa Sprint</span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -782,35 +606,180 @@
                 });
             });
 
-            // --- Logika Menu Dropdown & Pratinjau Produk ---
+            // --- Logika Menu Dropdown Produk (Click) ---
             const productMenu = document.getElementById('product-menu');
+            const productMenuButton = document.getElementById('product-menu-button');
             const productMenuDropdown = document.getElementById('product-menu-dropdown');
-            const previewImage = document.getElementById('product-preview-image');
-            let menuTimeout;
-
-            if (productMenu && productMenuDropdown && previewImage) {
-                const productLinks = productMenuDropdown.querySelectorAll('a[data-preview-image]');
-                const defaultPreviewImage = productLinks.length > 0 ? productLinks[0].dataset.previewImage : '';
-
-                productMenu.addEventListener('mouseenter', () => {
-                    clearTimeout(menuTimeout);
-                    previewImage.src = defaultPreviewImage;
-                    productMenuDropdown.classList.remove('hidden');
+            if (productMenu && productMenuButton && productMenuDropdown) {
+                productMenuButton.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    productMenuDropdown.classList.toggle('hidden');
                 });
 
-                productMenu.addEventListener('mouseleave', () => {
-                    menuTimeout = setTimeout(() => {
+                window.addEventListener('click', (event) => {
+                    if (!productMenu.contains(event.target) && !productMenuDropdown.classList.contains('hidden')) {
                         productMenuDropdown.classList.add('hidden');
-                    }, 200);
+                    }
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>
+```
+
+```html:Halaman Produk:halaman-produk.html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Produk - Vespa 946 Dragon - CJ Motor</title>
+    
+    <!-- Memuat Tailwind CSS untuk styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Memuat font Inter dari Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .thumbnail-active {
+            border-color: #22d3ee; /* Warna cyan-400 */
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white antialiased">
+
+    <!-- Kontainer Utama -->
+    <div id="main-content" class="container mx-auto px-6 pt-4 pb-8">
+
+        <!-- Header / Bagian Atas -->
+        <header class="sticky top-0 z-40 flex flex-col items-center space-y-2 bg-gray-900 py-4 shadow-lg -mx-6 px-6">
+            <a href="website_template_sederhana.html" class="flex items-center space-x-2">
+                <img src="https://i.postimg.cc/mhNZ7WrD/Asset-2.png" 
+                     alt="CJ Motor Logo" 
+                     class="h-7 w-auto">
+                <span class="text-xs font-bold text-white">CJ Motor</span>
+            </a>
+            <nav class="flex flex-wrap justify-center items-center gap-x-8">
+                <a href="website_template_sederhana.html" class="hover:text-cyan-400 transition-colors duration-300">Beranda</a>
+                <!-- Menu Dropdown Produk -->
+                <div class="relative" id="product-menu">
+                     <div id="product-menu-button" class="flex items-center gap-1 hover:text-cyan-400 transition-colors duration-300 cursor-pointer">
+                        <span>Produk</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <!-- Panel Mega Menu -->
+                    <div id="product-menu-dropdown" class="absolute left-1/2 -translate-x-1/2 mt-2 bg-gray-800 rounded-md shadow-lg z-50 hidden p-4" style="width: 450px;">
+                        <div class="grid grid-cols-2 gap-4">
+                            <a href="halaman-produk.html" class="block text-center p-2 rounded-lg hover:bg-gray-700 transition-colors duration-200">
+                                <img src="https://i.postimg.cc/FRFKxNPw/1-946-snake-01-2.png" alt="Vespa 946 Dragon" class="w-full h-24 object-contain mb-2">
+                                <span class="text-sm text-gray-300">Vespa 946 Dragon</span>
+                            </a>
+                             <a href="halaman-produk-2.html" class="block text-center p-2 rounded-lg hover:bg-gray-700 transition-colors duration-200">
+                                <img src="https://i.postimg.cc/tTr4SwwJ/2-gtv_blu_officina_01_3.png" alt="Vespa GTV" class="w-full h-24 object-contain mb-2">
+                                <span class="text-sm text-gray-300">Vespa GTV</span>
+                            </a>
+                            <a href="halaman-produk.html" class="block text-center p-2 rounded-lg hover:bg-gray-700 transition-colors duration-200">
+                                <img src="https://i.postimg.cc/0Nsjbp7k/3-sprint_blu_officina_01_3.png" alt="Vespa Sprint" class="w-full h-24 object-contain mb-2">
+                                <span class="text-sm text-gray-300">Vespa Sprint</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <a href="website_template_sederhana.html#tentang-kami" class="hover:text-cyan-400 transition-colors duration-300">Tentang</a>
+                <a href="website_template_sederhana.html#layanan-kami" class="hover:text-cyan-400 transition-colors duration-300">Layanan</a>
+                <a href="website_template_sederhana.html#lokasi-kami" class="hover:text-cyan-400 transition-colors duration-300">Lokasi</a>
+            </nav>
+        </header>
+
+        <!-- Product Detail Section -->
+        <main class="mt-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                
+                <!-- Galeri Gambar Produk -->
+                <div class="bg-gray-800 p-4 rounded-lg shadow-xl sticky top-28">
+                    <img id="main-product-image" src="https://i.postimg.cc/FRFKxNPw/1-946-snake-01-2.png" alt="Vespa 946 Dragon" class="w-full h-auto object-contain rounded-md transition-all duration-300">
+                    <!-- Galeri Thumbnail -->
+                    <div class="mt-4 grid grid-cols-4 gap-4">
+                        <img src="https://i.postimg.cc/FRFKxNPw/1-946-snake-01-2.png" alt="Thumbnail 1" class="product-thumbnail w-full h-24 object-contain cursor-pointer rounded-md border-2 border-transparent hover:border-cyan-400 transition-colors duration-300 thumbnail-active">
+                        <img src="https://placehold.co/300x200/1F2937/FFFFFF?text=Tampak+Samping" alt="Thumbnail 2" class="product-thumbnail w-full h-24 object-contain cursor-pointer rounded-md border-2 border-transparent hover:border-cyan-400 transition-colors duration-300">
+                        <img src="https://placehold.co/300x200/1F2937/FFFFFF?text=Detail+Lampu" alt="Thumbnail 3" class="product-thumbnail w-full h-24 object-contain cursor-pointer rounded-md border-2 border-transparent hover:border-cyan-400 transition-colors duration-300">
+                        <img src="https://placehold.co/300x200/1F2937/FFFFFF?text=Detail+Jok" alt="Thumbnail 4" class="product-thumbnail w-full h-24 object-contain cursor-pointer rounded-md border-2 border-transparent hover:border-cyan-400 transition-colors duration-300">
+                    </div>
+                </div>
+
+                <!-- Informasi Produk -->
+                <div class="bg-gray-800 p-8 rounded-lg shadow-xl">
+                    <h1 class="text-4xl font-bold mb-3 text-cyan-400">Vespa 946 Dragon</h1>
+                    <p class="text-gray-300 mb-6">
+                        Merayakan Tahun Naga, Vespa 946 Dragon adalah mahakarya edisi terbatas yang memadukan keanggunan Italia dengan kekuatan mitologi Timur. Sebuah koleksi eksklusif bagi para pengendara sejati.
+                    </p>
+
+                    <div class="border-t border-b border-gray-700 py-6 mb-6">
+                        <h3 class="text-xl font-semibold mb-4">Spesifikasi Utama</h3>
+                        <ul class="space-y-3 text-gray-400">
+                            <li class="flex justify-between"><span>Mesin:</span> <span class="font-medium text-white">150cc, 3-valve, silinder tunggal</span></li>
+                            <li class="flex justify-between"><span>Sistem Pendingin:</span> <span class="font-medium text-white">Udara</span></li>
+                            <li class="flex justify-between"><span>Sistem Rem:</span> <span class="font-medium text-white">ABS & ASR</span></li>
+                            <li class="flex justify-between"><span>Body:</span> <span class="font-medium text-white">Monocoque Steel</span></li>
+                            <li class="flex justify-between"><span>Fitur:</span> <span class="font-medium text-white">Edisi Terbatas, Detail Naga</span></li>
+                        </ul>
+                    </div>
+
+                    <p class="text-sm text-gray-500 mb-6">
+                        *Spesifikasi dapat berubah sewaktu-waktu. Untuk informasi harga dan ketersediaan, silakan hubungi kami.
+                    </p>
+
+                    <a href="website_template_sederhana.html#lokasi-kami" class="w-full text-center bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-4 px-6 rounded-lg transition-transform duration-300 inline-block transform hover:scale-105">
+                        Minta Penawaran
+                    </a>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer / Bagian Bawah -->
+        <footer class="flex justify-end text-gray-500 border-t border-gray-700 pt-6 mt-24">
+            <p class="text-xs">&copy; 2024 CJ Motor. Hak Cipta Dilindungi.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Logika Galeri Thumbnail ---
+            const mainImage = document.getElementById('main-product-image');
+            const thumbnails = document.querySelectorAll('.product-thumbnail');
+            thumbnails.forEach(thumbnail => {
+                thumbnail.addEventListener('click', function() {
+                    mainImage.src = this.src;
+                    thumbnails.forEach(t => t.classList.remove('thumbnail-active'));
+                    this.classList.add('thumbnail-active');
+                });
+            });
+
+            // --- Logika Menu Dropdown Produk (Click) ---
+            const productMenu = document.getElementById('product-menu');
+            const productMenuButton = document.getElementById('product-menu-button');
+            const productMenuDropdown = document.getElementById('product-menu-dropdown');
+            if (productMenu && productMenuButton && productMenuDropdown) {
+                productMenuButton.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    productMenuDropdown.classList.toggle('hidden');
                 });
 
-                productLinks.forEach(link => {
-                    link.addEventListener('mouseenter', () => {
-                        const imageUrl = link.dataset.previewImage;
-                        if (imageUrl) {
-                            previewImage.src = imageUrl;
-                        }
-                    });
+                window.addEventListener('click', (event) => {
+                    if (!productMenu.contains(event.target) && !productMenuDropdown.classList.contains('hidden')) {
+                        productMenuDropdown.classList.add('hidden');
+                    }
                 });
             }
         });
