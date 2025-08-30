@@ -97,14 +97,14 @@
 
         <!-- Header / Bagian Atas -->
         <header class="sticky top-0 z-40 flex flex-col items-center space-y-2 bg-white text-gray-800 py-4 shadow-md -mx-6 px-6">
-            <a href="index.html" class="flex items-center space-x-2">
+            <a href="website_template_sederhana.html" class="flex items-center space-x-2">
                 <img src="https://i.postimg.cc/mhNZ7WrD/Asset-2.png" 
                      alt="CJ Motor Logo" 
                      class="h-7 w-auto">
                 <span class="text-xs font-bold text-gray-800">CJ Motor</span>
             </a>
             <nav class="flex flex-wrap justify-center items-center gap-x-8">
-                <a href="index.html" class="hover:text-green-600 transition-colors duration-300">Beranda</a>
+                <a href="website_template_sederhana.html" class="hover:text-green-600 transition-colors duration-300">Beranda</a>
                 <!-- Menu Dropdown Produk -->
                 <div class="relative" id="product-menu">
                     <div id="product-menu-button" class="flex items-center gap-1 hover:text-green-600 transition-colors duration-300 cursor-pointer">
@@ -112,23 +112,36 @@
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </div>
                     <!-- Panel Mega Menu -->
-                    <div id="product-menu-dropdown" class="absolute left-1/2 -translate-x-1/2 mt-2 bg-white rounded-md shadow-lg z-50 hidden p-4" style="width: 450px;">
-                        <div class="grid grid-cols-2 gap-4">
-                            <!-- Produk Card 1 946 Snake -->
-                            <a href="1vp-946-snake.html" class="block text-center p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
-                                <img src="Asset/Product/946 Snake/946-snake-01 (2).png" alt="Vespa 946 Snake" class="w-full h-24 object-contain mb-2">
-                                <span class="text-sm text-gray-700">Vespa 946 Snake</span>
-                            </a>
-                            <!-- Produk Card 2 -->
-                             <a href="2vp-gtv-officina.html" class="block text-center p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
-                                <img src="Asset/Product/GTV Officina/banner-1 (1).jpg" alt="Vespa GTV Officina" class="w-full h-24 object-contain mb-2">
-                                <span class="text-sm text-gray-700">Vespa GTV</span>
-                            </a>
-                            <!-- Produk Card 3 -->
-                            <a href="halaman-produk.html" class="block text-center p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
-                                <img src="https://i.postimg.cc/0Nsjbp7k/3-sprint_blu_officina_01_3.png" alt="Vespa Sprint" class="w-full h-24 object-contain mb-2">
-                                <span class="text-sm text-gray-700">Vespa Sprint</span>
-                            </a>
+                    <div id="product-menu-dropdown" class="absolute left-1/2 -translate-x-1/2 mt-2 bg-white rounded-md shadow-lg z-50 hidden p-4" style="width: 600px;">
+                        <div class="flex gap-x-8">
+                            <!-- Kategori 125cc -->
+                            <div class="flex-1">
+                                <h3 class="text-xs uppercase font-bold text-gray-500 mb-2 px-2">125 cc</h3>
+                                <a href="#" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                                    <img src="https://placehold.co/100x100/F9FAFB/374151?text=Vespa+LX" alt="Vespa LX 125" class="w-12 h-12 object-contain">
+                                    <span class="text-sm text-gray-700">Vespa LX 125</span>
+                                </a>
+                            </div>
+                             <!-- Kategori 150cc -->
+                            <div class="flex-1">
+                                <h3 class="text-xs uppercase font-bold text-gray-500 mb-2 px-2">150 cc</h3>
+                                <a href="halaman-produk.html" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                                    <img src="https://i.postimg.cc/FRFKxNPw/1-946-snake-01-2.png" alt="Vespa 946 Dragon" class="w-12 h-12 object-contain">
+                                    <span class="text-sm text-gray-700">Vespa 946 Dragon</span>
+                                </a>
+                                <a href="halaman-produk.html" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                                    <img src="https://i.postimg.cc/0Nsjbp7k/3-sprint_blu_officina_01_3.png" alt="Vespa Sprint" class="w-12 h-12 object-contain">
+                                    <span class="text-sm text-gray-700">Vespa Sprint</span>
+                                </a>
+                            </div>
+                            <!-- Kategori 300cc -->
+                            <div class="flex-1">
+                                <h3 class="text-xs uppercase font-bold text-gray-500 mb-2 px-2">300 cc</h3>
+                                <a href="halaman-produk-2.html" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                                    <img src="https://i.postimg.cc/tTr4SwwJ/2-gtv_blu_officina_01_3.png" alt="Vespa GTV" class="w-12 h-12 object-contain">
+                                    <span class="text-sm text-gray-700">Vespa GTV</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -139,18 +152,51 @@
             </nav>
         </header>
 
-        <!-- Main Slider Section -->
+        <!-- Main Slider Section (EDIT DISINI, EDIT SEMUA HREF!!!!)-->
         <section class="mt-6 max-w-[766px] mx-auto">
             <div class="swiper-container banner-swiper h-[383px] rounded-lg shadow-lg">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide bg-white">
-                        <a href="1vp-946-snake.html"><img src="Asset/Product/946 Snake/946-banner-1.jpg" class="w-full h-full object-contain" alt="Banner 946 Snake" loading="eager"></a>
+                        <a href="index.html"><img src="Asset/Product/946 Snake/946-banner-1.jpg" alt="Banner 946 Snake" loading="eager"></a>
                     </div>
                     <div class="swiper-slide bg-white">
-                        <a href="2vp-gtv-officina.html"><img src="https://i.postimg.cc/SKVrDnPL/banner-1-1.jpg" class="w-full h-full object-contain" alt="Banner Motor 2" loading="eager"></a>
+                        <a href="index.html"><img src="Asset/Product/GTV Officina/gtvof8-banner-1 (1).jpg" alt="Banner GTV Officina 8" loading="eager"></a>
                     </div>
                     <div class="swiper-slide bg-white">
-                        <a href="halaman-produk.html"><img src="https://i.postimg.cc/s23mYYTD/banner-1-2.jpg" class="w-full h-full object-contain" alt="Banner Motor 3" loading="eager"></a>
+                        <a href="index.html"><img src="Asset/Product/Sprint Officina/sprintof8banner-1.jpg" class="w-full h-full object-contain" alt="Banner Sprint Officina 8" loading="eager"></a>
+                    </div>
+                    <div class="swiper-slide bg-white">
+                        <a href="index.html"><img src="Asset/Product/Lx 125/lx-banner-1.jpg" class="w-full h-full object-contain" alt="Banner Lx 125" loading="eager"></a>
+                    </div>
+                    <div class="swiper-slide bg-white">
+                        <a href="index.html"><img src="Asset/Product/Primavera 150/primavera-banner-1.jpg" class="w-full h-full object-contain" alt="Banner Primavera 150" loading="eager"></a>
+                    </div>
+                    <div class="swiper-slide bg-white">
+                        <a href="index.html"><img src="Asset/Product/Primavera S 150/primaveras-banner-1.jpg" class="w-full h-full object-contain" alt="Banner Primavera S 150" loading="eager"></a>
+                    </div>
+                    <div class="swiper-slide bg-white">
+                        <a href="index.html"><img src="Asset/Product/Sprint 150/sprint-banner-1.jpg" class="w-full h-full object-contain" alt="Banner Sprint 150" loading="eager"></a>
+                    </div>
+                    <div class="swiper-slide bg-white">
+                        <a href="halaman-produk.html"><img src="Asset/Product/Sprint S 150/sprints-banner-1 (1).jpg" class="w-full h-full object-contain" alt="Banner Sprint S 150" loading="eager"></a>
+                    </div>
+                    <div class="swiper-slide bg-white">
+                        <a href="halaman-produk.html"><img src="Asset/Product/Sprint 150 Tech/sprintt-banner-1.jpg" class="w-full h-full object-contain" alt="Banner Sprint Tech 150" loading="eager"></a>
+                    </div>
+                    <div class="swiper-slide bg-white">
+                        <a href="halaman-produk.html"><img src="Asset/Product/GTS 150 Classic/gtsc-banner-1.jpg" class="w-full h-full object-contain" alt="Banner GTS Classic 150" loading="eager"></a>
+                    </div>
+                    <div class="swiper-slide bg-white">
+                        <a href="halaman-produk.html"><img src="Asset/Product/GTS 150 SS/gtsss-banner-1 (1).jpg" class="w-full h-full object-contain" alt="Banner GTS Super Sport 150" loading="eager"></a>
+                    </div>
+                    <div class="swiper-slide bg-white">
+                        <a href="halaman-produk.html"><img src="Asset/Product/GTS Super Tech/gtsst-banner-1 (1).jpg" class="w-full h-full object-contain" alt="Banner GTS Super Tech 300" loading="eager"></a>
+                    </div>
+                    <div class="swiper-slide bg-white">
+                        <a href="halaman-produk.html"><img src="Asset/Product/GTV 300/gtv-banner-1.jpg" class="w-full h-full object-contain" alt="Banner GTV 300" loading="eager"></a>
+                    </div>
+                    <div class="swiper-slide bg-white">
+                        <a href="halaman-produk.html"><img src="Asset/Product/Vespa Ellectrica/electrica-banner-1 (1).jpg" class="w-full h-full object-contain" alt="Banner Ellectrica" loading="eager"></a>
                     </div>
                 </div>
             </div>
@@ -160,18 +206,18 @@
         <section class="mt-16 mb-16">
             <div class="swiper-container product-swiper relative">
                 <div class="swiper-wrapper pb-8">
-                    <!-- Produk 1 946 Snake -->
+                    <!-- Produk 1 -->
                     <div class="swiper-slide">
-                        <a href="1vp-946-snake.html" class="block text-center transform hover:-translate-y-2 transition-transform duration-300 h-full">
-                            <img src="Asset/Product/946 Snake/946-snake-01 (2).png" alt="Produk 1" class="w-full h-32 object-contain" loading="eager">
+                        <a href="halaman-produk.html" class="block text-center transform hover:-translate-y-2 transition-transform duration-300 h-full">
+                            <img src="https://i.postimg.cc/FRFKxNPw/1-946-snake-01-2.png" alt="Produk 1" class="w-full h-32 object-contain" loading="eager">
                             <div class="p-3">
-                                <h3 class="font-semibold text-xs text-gray-800">Vespa 946 Snake</h3>
+                                <h3 class="font-semibold text-xs text-gray-800">Vespa 946 Dragon</h3>
                             </div>
                         </a>
                     </div>
                     <!-- Produk 2 -->
                     <div class="swiper-slide">
-                        <a href="2vp-gtv-officina.html" class="block text-center transform hover:-translate-y-2 transition-transform duration-300 h-full">
+                        <a href="halaman-produk-2.html" class="block text-center transform hover:-translate-y-2 transition-transform duration-300 h-full">
                             <img src="https://i.postimg.cc/tTr4SwwJ/2-gtv_blu_officina_01_3.png" alt="Produk 2" class="w-full h-32 object-contain" loading="eager">
                             <div class="p-3">
                                 <h3 class="font-semibold text-xs text-gray-800">Vespa GTV</h3>
@@ -478,7 +524,3 @@
 
 </body>
 </html>
-
-
-
-
