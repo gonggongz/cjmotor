@@ -408,19 +408,29 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
     <script>
-        window.addEventListener('load', () => {
+        document.addEventListener('DOMContentLoaded', () => {
             const splashScreen = document.getElementById('splash-screen');
             const mainContent = document.getElementById('main-content');
 
+            // Sembunyikan splash screen dan tampilkan konten utama setelah animasi selesai
             setTimeout(() => {
-                splashScreen.classList.add('opacity-0');
-                mainContent.classList.remove('opacity-0');
-                setTimeout(() => {
-                    splashScreen.style.display = 'none';
-                    // Mulai slider "Tentang Kami" setelah halaman utama muncul
-                    startAboutSlider();
-                }, 1000);
-            }, 3000);
+                if (splashScreen) {
+                    splashScreen.classList.add('opacity-0');
+                    // Atur agar splash screen hilang dari layout setelah transisi CSS selesai
+                    splashScreen.addEventListener('transitionend', () => {
+                        splashScreen.style.display = 'none';
+                    }, { once: true }); // Opsi { once: true } memastikan event ini hanya berjalan sekali
+                }
+                
+                if (mainContent) {
+                    mainContent.classList.remove('opacity-0');
+                }
+
+                // Mulai slider "Tentang Kami" tanpa harus menunggu transisi splash screen
+                // Ini akan dipanggil setelah 3 detik, saat konten utama mulai muncul
+                startAboutSlider();
+
+            }, 3000); // Waktu tunggu ini sama dengan durasi animasi 'motorcycle-race'
         });
 
         // Inisialisasi Swiper Banner
@@ -468,6 +478,7 @@
         // Fungsi untuk slider "Tentang Kami"
         function startAboutSlider() {
             const slides = document.querySelectorAll('.about-slide');
+            if (slides.length === 0) return; // Hentikan jika tidak ada slide
             let currentSlide = 0;
 
             setInterval(() => {
@@ -482,6 +493,4 @@
 
 </body>
 </html>
-
-
 
