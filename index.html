@@ -17,9 +17,11 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     
     <style>
-        /* Menerapkan font Inter ke body */
+        /* Menerapkan font Inter ke body dan anti-aliasing untuk teks yang lebih halus */
         body {
             font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         /* Menerapkan font Roboto khusus untuk teks splash screen */
@@ -27,76 +29,40 @@
             font-family: 'Roboto', sans-serif;
         }
 
-        /* Keyframes untuk animasi teks seperti motor melaju */
+        /* Keyframes untuk animasi teks seperti motor melaju (dengan vendor prefix untuk kompatibilitas) */
+        @-webkit-keyframes motorcycle-race {
+            0% { opacity: 0; -webkit-transform: translateX(-100vw) scale(0.7); transform: translateX(-100vw) scale(0.7); }
+            40% { opacity: 1; -webkit-transform: translateX(0) scale(1); transform: translateX(0) scale(1); }
+            60% { opacity: 1; -webkit-transform: translateX(0) scale(1); transform: translateX(0) scale(1); }
+            100% { opacity: 0; -webkit-transform: translateX(100vw) scale(0.7); transform: translateX(100vw) scale(0.7); }
+        }
         @keyframes motorcycle-race {
-            0% {
-                opacity: 0;
-                transform: translateX(-100vw) scale(0.7);
-            }
-            40% {
-                opacity: 1;
-                transform: translateX(0) scale(1);
-            }
-            60% {
-                opacity: 1;
-                transform: translateX(0) scale(1);
-            }
-            100% {
-                opacity: 0;
-                transform: translateX(100vw) scale(0.7);
-            }
+            0% { opacity: 0; transform: translateX(-100vw) scale(0.7); }
+            40% { opacity: 1; transform: translateX(0) scale(1); }
+            60% { opacity: 1; transform: translateX(0) scale(1); }
+            100% { opacity: 0; transform: translateX(100vw) scale(0.7); }
         }
 
-        /* Keyframes untuk animasi logo leasing */
+        /* Keyframes untuk animasi logo leasing (dengan vendor prefix) */
+        @-webkit-keyframes scroll-left {
+            from { -webkit-transform: translateX(0); transform: translateX(0); }
+            to { -webkit-transform: translateX(-100%); transform: translateX(-100%); }
+        }
         @keyframes scroll-left {
-            from {
-                transform: translateX(0);
-            }
-            to {
-                transform: translateX(-100%);
-            }
+            from { transform: translateX(0); }
+            to { transform: translateX(-100%); }
         }
 
         /* Menerapkan animasi ke elemen teks */
         .animate-motorcycle-race {
+            -webkit-animation: motorcycle-race 3s ease-in-out forwards;
             animation: motorcycle-race 3s ease-in-out forwards;
         }
 
         /* Menerapkan animasi ke logo leasing */
         .animate-scroll-left {
+            -webkit-animation: scroll-left 40s linear infinite;
             animation: scroll-left 40s linear infinite;
-        }
-
-        /* Custom styling umum untuk navigasi Swiper */
-        .swiper-button-next, .swiper-button-prev {
-            color: #ffffff;
-            border-radius: 50%;
-        }
-        .swiper-button-next:after, .swiper-button-prev:after {
-            font-size: 24px;
-        }
-        
-        /* Styling untuk navigasi slider banner */
-        .banner-swiper .swiper-button-next, 
-        .banner-swiper .swiper-button-prev {
-            background-color: rgba(0, 0, 0, 0.36);
-            width: 44px;
-            height: 44px;
-            /* PERBAIKAN: Menambahkan posisi vertikal eksplisit */
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        /* Styling spesifik untuk navigasi slider produk */
-        .product-swiper .swiper-button-next, 
-        .product-swiper .swiper-button-prev {
-            background-color: rgba(0, 0, 0, 0.64);
-            width: 36px;
-            height: 36px;
-        }
-        .product-swiper .swiper-button-next:after, 
-        .product-swiper .swiper-button-prev:after {
-            font-size: 16px;
         }
         
         /* Styling untuk transisi fade pada slider "Tentang Kami" */
@@ -159,9 +125,6 @@
                         <a href="halaman-produk.html"><img src="https://i.postimg.cc/s23mYYTD/banner-1-2.jpg" class="w-full h-full object-contain" alt="Banner Motor 3" loading="eager"></a>
                     </div>
                 </div>
-                <!-- Navigasi Slider -->
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
             </div>
         </section>
 
@@ -240,9 +203,6 @@
                         </a>
                     </div>
                 </div>
-                <!-- Navigasi Slider Produk -->
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
             </div>
         </section>
 
@@ -408,7 +368,7 @@
     </div>
 
     <!-- Memuat Swiper JS -->
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js" defer></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -434,48 +394,40 @@
                 startAboutSlider();
 
             }, 3000); // Waktu tunggu ini sama dengan durasi animasi 'motorcycle-race'
-        });
 
-        // Inisialisasi Swiper Banner
-        var bannerSwiper = new Swiper('.banner-swiper', {
-            loop: true,
-            autoplay: {
-                delay: 5000,
-                disableOnInteraction: false,
-            },
-            navigation: {
-                nextEl: '.banner-swiper .swiper-button-next',
-                prevEl: '.banner-swiper .swiper-button-prev',
-            },
-        });
+            // Inisialisasi Swiper Banner
+            var bannerSwiper = new Swiper('.banner-swiper', {
+                loop: true,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+            });
 
-        // Inisialisasi Swiper Produk
-        var productSwiper = new Swiper('.product-swiper', {
-            loop: true,
-            slidesPerView: 1,
-            spaceBetween: 20,
-            autoplay: {
-                delay: 4000,
-                disableOnInteraction: false,
-            },
-            navigation: {
-                nextEl: '.product-swiper .swiper-button-next',
-                prevEl: '.product-swiper .swiper-button-prev',
-            },
-            breakpoints: {
-                640: {
-                    slidesPerView: 2,
-                    spaceBetween: 20,
+            // Inisialisasi Swiper Produk
+            var productSwiper = new Swiper('.product-swiper', {
+                loop: true,
+                slidesPerView: 1,
+                spaceBetween: 20,
+                autoplay: {
+                    delay: 4000,
+                    disableOnInteraction: false,
                 },
-                768: {
-                    slidesPerView: 3,
-                    spaceBetween: 30,
-                },
-                1024: {
-                    slidesPerView: 4,
-                    spaceBetween: 30,
-                },
-            }
+                breakpoints: {
+                    640: {
+                        slidesPerView: 2,
+                        spaceBetween: 20,
+                    },
+                    768: {
+                        slidesPerView: 3,
+                        spaceBetween: 30,
+                    },
+                    1024: {
+                        slidesPerView: 4,
+                        spaceBetween: 30,
+                    },
+                }
+            });
         });
 
         // Fungsi untuk slider "Tentang Kami"
