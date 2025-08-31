@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CJ Motor - Website</title>
+    <title>CJ Motor - Website Dealer Resmi</title>
     
     <!-- Memuat Tailwind CSS untuk styling -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -29,13 +29,7 @@
             font-family: 'Roboto', sans-serif;
         }
 
-        /* Keyframes untuk animasi teks seperti motor melaju (dengan vendor prefix untuk kompatibilitas) */
-        @-webkit-keyframes motorcycle-race {
-            0% { opacity: 0; -webkit-transform: translateX(-100vw) scale(0.7); transform: translateX(-100vw) scale(0.7); }
-            40% { opacity: 1; -webkit-transform: translateX(0) scale(1); transform: translateX(0) scale(1); }
-            60% { opacity: 1; -webkit-transform: translateX(0) scale(1); transform: translateX(0) scale(1); }
-            100% { opacity: 0; -webkit-transform: translateX(100vw) scale(0.7); transform: translateX(100vw) scale(0.7); }
-        }
+        /* Keyframes untuk animasi teks seperti motor melaju */
         @keyframes motorcycle-race {
             0% { opacity: 0; transform: translateX(-100vw) scale(0.7); }
             40% { opacity: 1; transform: translateX(0) scale(1); }
@@ -43,11 +37,7 @@
             100% { opacity: 0; transform: translateX(100vw) scale(0.7); }
         }
 
-        /* Keyframes untuk animasi logo leasing (dengan vendor prefix) */
-        @-webkit-keyframes scroll-left {
-            from { -webkit-transform: translateX(0); transform: translateX(0); }
-            to { -webkit-transform: translateX(-100%); transform: translateX(-100%); }
-        }
+        /* Keyframes untuk animasi logo leasing */
         @keyframes scroll-left {
             from { transform: translateX(0); }
             to { transform: translateX(-100%); }
@@ -55,13 +45,11 @@
 
         /* Menerapkan animasi ke elemen teks */
         .animate-motorcycle-race {
-            -webkit-animation: motorcycle-race 3s ease-in-out forwards;
             animation: motorcycle-race 3s ease-in-out forwards;
         }
 
         /* Menerapkan animasi ke logo leasing */
         .animate-scroll-left {
-            -webkit-animation: scroll-left 40s linear infinite;
             animation: scroll-left 40s linear infinite;
         }
         
@@ -77,9 +65,8 @@
 
         /* Perbaikan untuk anchor link dengan sticky header */
         section[id] {
-            scroll-margin-top: 100px; /* Sesuaikan nilai ini dengan tinggi header Anda */
+            scroll-margin-top: 100px;
         }
-
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800 antialiased overflow-x-hidden">
@@ -96,166 +83,95 @@
     <div id="main-content" class="container mx-auto px-6 pt-4 pb-8 opacity-0 transition-opacity duration-500">
 
         <!-- Header / Bagian Atas -->
-        <header class="sticky top-0 z-40 flex flex-col items-center space-y-2 bg-white text-gray-800 py-4 shadow-md -mx-6 px-6">
-            <a href="website_template_sederhana.html" class="flex items-center space-x-2">
+        <header class="sticky top-0 z-40 flex flex-col items-center space-y-4 bg-white text-gray-800 py-4 shadow-md -mx-6 px-6 relative">
+            <a href="#" class="flex items-center space-x-2">
                 <img src="https://i.postimg.cc/mhNZ7WrD/Asset-2.png" 
                      alt="CJ Motor Logo" 
                      class="h-7 w-auto">
                 <span class="text-xs font-bold text-gray-800">CJ Motor</span>
             </a>
-            <nav class="flex flex-wrap justify-center items-center gap-x-8">
-                <a href="website_template_sederhana.html" class="hover:text-green-600 transition-colors duration-300">Beranda</a>
+            <nav class="flex flex-wrap justify-center items-center gap-y-2 gap-x-4 md:gap-x-8 text-sm">
+                <a href="#" class="hover:text-green-600 transition-colors duration-300">Beranda</a>
                 <!-- Menu Dropdown Produk -->
-                <div class="relative" id="product-menu">
+                <div id="product-menu">
                     <div id="product-menu-button" class="flex items-center gap-1 hover:text-green-600 transition-colors duration-300 cursor-pointer">
                         <span>Produk</span>
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </div>
-                    <!-- Panel Mega Menu -->
-                    <div id="product-menu-dropdown" class="absolute left-1/2 -translate-x-1/2 mt-2 bg-white rounded-md shadow-lg z-50 hidden p-4" style="width: 700px;">
-                        <div class="grid grid-cols-3 gap-x-8">
-                            <!-- Kategori 125cc -->
-                            <div class="space-y-1">
-                                <h3 class="text-xs uppercase font-bold text-gray-500 mb-2 px-2">125 cc</h3>
-                                <a href="1vp-946-snake.html" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
-                                    <img src="https://placehold.co/100x100/F9FAFB/374151?text=Vespa+LX" alt="Vespa LX 125" class="w-12 h-12 object-contain">
-                                    <span class="text-sm text-gray-700">Vespa LX 125</span>
-                                </a>
-                            </div>
-                             <!-- Kategori 150cc -->
-                            <div class="space-y-1">
-                                <h3 class="text-xs uppercase font-bold text-gray-500 mb-2 px-2">150 cc</h3>
-                                <a href="1vp-946-snake.html" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
-                                    <img src="https://i.postimg.cc/FRFKxNPw/1-946-snake-01-2.png" alt="Vespa 946 Dragon" class="w-12 h-12 object-contain">
-                                    <span class="text-sm text-gray-700">Vespa 946 Dragon</span>
-                                </a>
-                                <a href="1vp-946-snake.html" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
-                                    <img src="https://i.postimg.cc/0Nsjbp7k/3-sprint_blu_officina_01_3.png" alt="Vespa Sprint" class="w-12 h-12 object-contain">
-                                    <span class="text-sm text-gray-700">Vespa Sprint</span>
-                                </a>
-                                <a href="ver-sprint.html" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
-                                    <img src="https://placehold.co/100x100/F9FAFB/374151?text=Sprint+S" alt="Vespa Sprint S" class="w-12 h-12 object-contain">
-                                    <span class="text-sm text-gray-700">Vespa Sprint S</span>
-                                </a>
-                                <a href="ver-sprint.html" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
-                                    <img src="https://placehold.co/100x100/F9FAFB/374151?text=Primavera" alt="Vespa Primavera" class="w-12 h-12 object-contain">
-                                    <span class="text-sm text-gray-700">Primavera</span>
-                                </a>
-                            </div>
-                            <!-- Kategori 300cc -->
-                            <div class="space-y-1">
-                                <h3 class="text-xs uppercase font-bold text-gray-500 mb-2 px-2">300 cc</h3>
-                                <a href="halaman-produk-2.html" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
-                                    <img src="https://i.postimg.cc/tTr4SwwJ/2-gtv_blu_officina_01_3.png" alt="Vespa GTV" class="w-12 h-12 object-contain">
-                                    <span class="text-sm text-gray-700">Vespa GTV</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-                <a href="#" class="hover:text-green-600 transition-colors duration-300">Aksesoris</a>
+                <a href="#layanan-kami" class="hover:text-green-600 transition-colors duration-300">Aksesoris</a>
                 <a href="#tentang-kami" class="hover:text-green-600 transition-colors duration-300">Tentang</a>
                 <a href="#layanan-kami" class="hover:text-green-600 transition-colors duration-300">Layanan</a>
                 <a href="#lokasi-kami" class="hover:text-green-600 transition-colors duration-300">Lokasi</a>
             </nav>
-        </header>
-
-        <!-- Main Slider Section -->
-        <section class="mt-6 max-w-[766px] mx-auto">
-            <div class="swiper-container banner-swiper h-[383px] rounded-lg shadow-lg">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide bg-white">
-                        <a href="ver-sprint.html"><img src="https://i.postimg.cc/gJJK5Y9C/banner-1.jpg" class="w-full h-full object-contain" alt="Banner Motor 1" loading="eager"></a>
+            <!-- Panel Mega Menu -->
+            <div id="product-menu-dropdown" class="absolute top-full mt-2 left-1/2 -translate-x-1/2 bg-white rounded-md shadow-lg z-50 hidden p-4 w-[90vw] max-w-[700px]">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                    <!-- Kategori 125cc -->
+                    <div class="space-y-1">
+                        <h3 class="text-xs uppercase font-bold text-gray-500 mb-2 px-2">125 cc</h3>
+                        <a href="#matic" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                            <img src="https://placehold.co/100x100/F9FAFB/374151?text=Vespa+LX" alt="Vespa LX 125" class="w-12 h-12 object-contain">
+                            <span class="text-sm text-gray-700">Vespa LX 125</span>
+                        </a>
                     </div>
-                    <div class="swiper-slide bg-white">
-                        <a href="halaman-produk-2.html"><img src="https://i.postimg.cc/SKVrDnPL/banner-1-1.jpg" class="w-full h-full object-contain" alt="Banner Motor 2" loading="eager"></a>
+                     <!-- Kategori 150cc -->
+                    <div class="space-y-1">
+                        <h3 class="text-xs uppercase font-bold text-gray-500 mb-2 px-2">150 cc</h3>
+                        <a href="#matic" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                            <img src="https://i.postimg.cc/FRFKxNPw/1-946-snake-01-2.png" alt="Vespa 946 Dragon" class="w-12 h-12 object-contain">
+                            <span class="text-sm text-gray-700">Vespa 946 Dragon</span>
+                        </a>
+                        <a href="#matic" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                            <img src="https://i.postimg.cc/0Nsjbp7k/3-sprint_blu_officina_01_3.png" alt="Vespa Sprint" class="w-12 h-12 object-contain">
+                            <span class="text-sm text-gray-700">Vespa Sprint</span>
+                        </a>
+                        <a href="#matic" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                            <img src="https://placehold.co/100x100/F9FAFB/374151?text=Sprint+S" alt="Vespa Sprint S" class="w-12 h-12 object-contain">
+                            <span class="text-sm text-gray-700">Vespa Sprint S</span>
+                        </a>
+                        <a href="#matic" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                            <img src="https://placehold.co/100x100/F9FAFB/374151?text=Primavera" alt="Vespa Primavera" class="w-12 h-12 object-contain">
+                            <span class="text-sm text-gray-700">Primavera</span>
+                        </a>
                     </div>
-                    <div class="swiper-slide bg-white">
-                        <a href="ver-sprint.html"><img src="https://i.postimg.cc/s23mYYTD/banner-1-2.jpg" class="w-full h-full object-contain" alt="Banner Motor 3" loading="eager"></a>
+                    <!-- Kategori 300cc -->
+                    <div class="space-y-1">
+                        <h3 class="text-xs uppercase font-bold text-gray-500 mb-2 px-2">300 cc</h3>
+                        <a href="#sport" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                            <img src="https://i.postimg.cc/tTr4SwwJ/2-gtv_blu_officina_01_3.png" alt="Vespa GTV" class="w-12 h-12 object-contain">
+                            <span class="text-sm text-gray-700">Vespa GTV</span>
+                        </a>
                     </div>
                 </div>
             </div>
-        </section>
+        </header>
 
-        <!-- Product Slider Section -->
-        <section class="mt-16 mb-16">
-            <div class="swiper-container product-swiper relative">
-                <div class="swiper-wrapper pb-8">
-                    <!-- Produk 1 -->
-                    <div class="swiper-slide">
-                        <a href="ver-sprint.html" class="block text-center transform hover:-translate-y-2 transition-transform duration-300 h-full">
-                            <img src="https://i.postimg.cc/FRFKxNPw/1-946-snake-01-2.png" alt="Produk 1" class="w-full h-32 object-contain" loading="eager">
-                            <div class="p-3">
-                                <h3 class="font-semibold text-xs text-gray-800">Vespa 946 Dragon</h3>
-                            </div>
-                        </a>
+        <!-- Main Slider Section -->
+        <section class="mt-6 max-w-4xl mx-auto">
+            <div class="swiper-container banner-swiper h-56 md:h-80 lg:h-[383px] rounded-lg shadow-lg">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide bg-white">
+                        <a href="halaman-produk.html"><img src="https://i.postimg.cc/gJJK5Y9C/banner-1.jpg" class="w-full h-full object-cover" alt="Banner Motor 1" loading="eager"></a>
                     </div>
-                    <!-- Produk 2 -->
-                    <div class="swiper-slide">
-                        <a href="halaman-produk-2.html" class="block text-center transform hover:-translate-y-2 transition-transform duration-300 h-full">
-                            <img src="https://i.postimg.cc/tTr4SwwJ/2-gtv_blu_officina_01_3.png" alt="Produk 2" class="w-full h-32 object-contain" loading="eager">
-                            <div class="p-3">
-                                <h3 class="font-semibold text-xs text-gray-800">Vespa GTV</h3>
-                            </div>
-                        </a>
+                    <div class="swiper-slide bg-white">
+                        <a href="halaman-produk-2.html"><img src="https://i.postimg.cc/SKVrDnPL/banner-1-1.jpg" class="w-full h-full object-cover" alt="Banner Motor 2" loading="eager"></a>
                     </div>
-                    <!-- Produk 3 -->
-                    <div class="swiper-slide">
-                        <a href="ver-sprint.html" class="block text-center transform hover:-translate-y-2 transition-transform duration-300 h-full">
-                            <img src="https://i.postimg.cc/0Nsjbp7k/3-sprint_blu_officina_01_3.png" alt="Produk 3" class="w-full h-32 object-contain">
-                            <div class="p-3">
-                                <h3 class="font-semibold text-xs text-gray-800">Vespa Sprint</h3>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Produk 4 -->
-                    <div class="swiper-slide">
-                        <a href="ver-sprint.html" class="block text-center transform hover:-translate-y-2 transition-transform duration-300 h-full">
-                            <img src="https://i.postimg.cc/N0kMT5x1/4-gtv_white_innocente_01_3.png" alt="Produk 4" class="w-full h-32 object-contain">
-                            <div class="p-3">
-                                <h3 class="font-semibold text-xs text-gray-800">Vespa GTV White</h3>
-                            </div>
-                        </a>
-                    </div>
-                     <!-- Produk 5 -->
-                    <div class="swiper-slide">
-                        <a href="ver-sprint.html" class="block text-center transform hover:-translate-y-2 transition-transform duration-300 h-full">
-                            <img src="https://i.postimg.cc/4ymNrwR5/5-gtstgrey_quarzo_01_3.png" alt="Produk 5" class="w-full h-32 object-contain">
-                            <div class="p-3">
-                                <h3 class="font-semibold text-xs text-gray-800">Vespa GTS Grey</h3>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Produk 6 -->
-                    <div class="swiper-slide">
-                        <a href="ver-sprint.html" class="block text-center transform hover:-translate-y-2 transition-transform duration-300 h-full">
-                            <img src="https://i.postimg.cc/QCwxs5Xr/6-gtsss_white_innocente_01_3.png" alt="Produk 6" class="w-full h-32 object-contain">
-                            <div class="p-3">
-                                <h3 class="font-semibold text-xs text-gray-800">Vespa GTS Super Sport</h3>
-                            </div>
-                        </a>
-                    </div>
-                    <!-- Produk 7 -->
-                    <div class="swiper-slide">
-                        <a href="ver-sprint.html" class="block text-center transform hover:-translate-y-2 transition-transform duration-300 h-full">
-                            <img src="https://i.postimg.cc/CMQKjyb6/7-gtsc_beige_sabbia_01_3.png" alt="Produk 7" class="w-full h-32 object-contain">
-                            <div class="p-3">
-                                <h3 class="font-semibold text-xs text-gray-800">Vespa GTS Classic</h3>
-                            </div>
-                        </a>
+                    <div class="swiper-slide bg-white">
+                        <a href="halaman-produk.html"><img src="https://i.postimg.cc/s23mYYTD/banner-1-2.jpg" class="w-full h-full object-cover" alt="Banner Motor 3" loading="eager"></a>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- About Us Section -->
-        <section id="tentang-kami" class="mb-16">
+        <section id="tentang-kami" class="mt-16 mb-16">
             <div class="bg-white p-8 rounded-lg shadow-lg">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div class="relative h-64 md:h-full w-full rounded-lg">
-                        <img src="https://i.postimg.cc/Qx5kwZkH/Asset-2.png" alt="Gambar Tentang Kami 1" class="about-slide absolute top-0 left-0 w-full h-full object-contain" loading="eager">
-                        <img src="https://i.postimg.cc/bvYxZDXt/Vespa-celebration-editorial-1920x1440-2-1.png" alt="Gambar Tentang Kami 2" class="about-slide absolute top-0 left-0 w-full h-full object-contain opacity-0">
-                        <img src="https://i.postimg.cc/y8yh6hGK/Vespa-celebration-editorial-1920x1440-3.png" alt="Gambar Tentang Kami 3" class="about-slide absolute top-0 left-0 w-full h-full object-contain opacity-0">
+                        <img src="https://i.postimg.cc/Qx5kwZkH/Asset-2.png" alt="Gambar Tentang Kami 1" class="about-slide absolute top-0 left-0 w-full h-full object-contain opacity-100" loading="lazy">
+                        <img src="https://i.postimg.cc/bvYxZDXt/Vespa-celebration-editorial-1920x1440-2-1.png" alt="Gambar Tentang Kami 2" class="about-slide absolute top-0 left-0 w-full h-full object-contain opacity-0" loading="lazy">
+                        <img src="https://i.postimg.cc/y8yh6hGK/Vespa-celebration-editorial-1920x1440-3.png" alt="Gambar Tentang Kami 3" class="about-slide absolute top-0 left-0 w-full h-full object-contain opacity-0" loading="lazy">
                     </div>
                     <div class="text-center md:text-left">
                         <h2 class="text-3xl font-bold mb-4">Selamat Datang di CJ Motor</h2>
@@ -314,11 +230,11 @@
                     <img src="https://i.postimg.cc/t4gW3BN4/Logo-IMFI-NEW.png" alt="IMFI Logo" class="h-12 w-auto mx-8 flex-shrink-0">
                     <div class="flex-shrink-0 mx-8 flex items-center text-2xl font-semibold text-gray-700">BRI Finance</div>
                     <!-- Daftar Leasing Duplikat untuk Efek Loop -->
-                    <img src="https://i.postimg.cc/xT5LNwHZ/l-OGO-ADIRA.png" alt="Adira Finance Logo" class="h-12 w-auto mx-8 flex-shrink-0">
-                    <img src="https://i.postimg.cc/t4mP2FBt/Logo-Mandiri-Utama-Finance.png" alt="Mandiri Utama Finance Logo" class="h-12 w-auto mx-8 flex-shrink-0">
-                    <div class="flex-shrink-0 mx-8 flex items-center text-2xl font-semibold text-gray-700">KSM BCA</div>
-                    <img src="https://i.postimg.cc/t4gW3BN4/Logo-IMFI-NEW.png" alt="IMFI Logo" class="h-12 w-auto mx-8 flex-shrink-0">
-                    <div class="flex-shrink-0 mx-8 flex items-center text-2xl font-semibold text-gray-700">BRI Finance</div>
+                    <img src="https://i.postimg.cc/xT5LNwHZ/l-OGO-ADIRA.png" alt="Adira Finance Logo" class="h-12 w-auto mx-8 flex-shrink-0" aria-hidden="true">
+                    <img src="https://i.postimg.cc/t4mP2FBt/Logo-Mandiri-Utama-Finance.png" alt="Mandiri Utama Finance Logo" class="h-12 w-auto mx-8 flex-shrink-0" aria-hidden="true">
+                    <div class="flex-shrink-0 mx-8 flex items-center text-2xl font-semibold text-gray-700" aria-hidden="true">KSM BCA</div>
+                    <img src="https://i.postimg.cc/t4gW3BN4/Logo-IMFI-NEW.png" alt="IMFI Logo" class="h-12 w-auto mx-8 flex-shrink-0" aria-hidden="true">
+                    <div class="flex-shrink-0 mx-8 flex items-center text-2xl font-semibold text-gray-700" aria-hidden="true">BRI Finance</div>
                 </div>
             </div>
         </section>
@@ -330,7 +246,7 @@
                 <!-- Lokasi 1: Tasikmalaya -->
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden">
                     <div class="w-full h-64">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.253330689943!2d108.2201138759971!3d-7.32555597207604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f575555555555%3A0x1a87b643d67417e!2sDealer%20Vespa%20Tasikmalaya!5e0!3m2!1sid!2sid!4v1724902345678!5m2!1sid!2sid" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.253330689943!2d108.2201138759971!3d-7.32555597207604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f575555555555%3A0x1a87b643d67417e!2sDealer%20Vespa%20Tasikmalaya!5e0!3m2!1sid!2sid!4v1724902345678!5m2!1sid!2sid" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Peta Lokasi CJ Motor Tasikmalaya"></iframe>
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold mb-2">CJ Motor Tasikmalaya</h3>
@@ -342,7 +258,7 @@
                 <!-- Lokasi 2: Indramayu -->
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden">
                     <div class="w-full h-64">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.843350485608!2d108.30556187599026!3d-6.414441462700083!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69455555555555%3A0x9a8385a40b8a1c6!2sDealer%20Vespa%20Indramayu!5e0!3m2!1sid!2sid!4v1724902456789!5m2!1sid!2sid" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.843350485608!2d108.30556187599026!3d-6.414441462700083!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69455555555555%3A0x9a8385a40b8a1c6!2sDealer%20Vespa%20Indramayu!5e0!3m2!1sid!2sid!4v1724902456789!5m2!1sid!2sid" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Peta Lokasi CJ Motor Indramayu"></iframe>
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold mb-2">CJ Motor Indramayu</h3>
@@ -374,26 +290,30 @@
                              <div class="space-y-2">
                                 <h4 class="font-semibold text-lg text-green-600 mb-2">CJ Motor Jatibarang</h4>
                                  <a href="tel:02342503017" class="flex items-center justify-center sm:justify-start gap-3 text-gray-700 hover:text-green-600 transition-colors duration-300">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-                                    <span class="text-sm">0234 2503017</span>
-                                </a>
+                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                                     <span class="text-sm">0234 2503017</span>
+                                 </a>
                                 <a href="https://wa.me/6281223701707" target="_blank" class="flex items-center justify-center sm:justify-start gap-3 text-gray-700 hover:text-green-600 transition-colors duration-300">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 flex-shrink-0" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.1-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
                                     <span class="text-sm">+6281223701707</span>
                                 </a>
-                            </div>
+                             </div>
                         </div>
                     </div>
                     <div>
                         <h3 class="text-2xl font-bold mb-4">Ikuti Kami</h3>
                         <div class="flex justify-center md:justify-start space-x-4">
+                            <!-- DITINGKATKAN: Aksesibilitas dengan sr-only -->
                             <a href="#" class="text-gray-400 hover:text-green-600 transition-colors duration-300">
+                                <span class="sr-only">Facebook</span>
                                 <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg>
                             </a>
                             <a href="#" class="text-gray-400 hover:text-green-600 transition-colors duration-300">
+                                <span class="sr-only">Instagram</span>
                                 <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.013-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218 1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 016.08 2.525c.636-.247 1.363.416 2.427.465C9.53 2.013 9.884 2 12.315 2zM12 7a5 5 0 100 10 5 5 0 000-10zm0 8a3 3 0 110-6 3 3 0 010 6zm5.25-9.75a1.25 1.25 0 100-2.5 1.25 1.25 0 000 2.5z" clip-rule="evenodd" /></svg>
                             </a>
                             <a href="#" class="text-gray-400 hover:text-green-600 transition-colors duration-300">
+                                <span class="sr-only">Twitter</span>
                                 <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" /></svg>
                             </a>
                         </div>
@@ -410,74 +330,65 @@
     </div>
 
     <!-- Memuat Swiper JS -->
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js" defer></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const splashScreen = document.getElementById('splash-screen');
             const mainContent = document.getElementById('main-content');
+            
             const productMenu = document.getElementById('product-menu');
             const productMenuButton = document.getElementById('product-menu-button');
             const productMenuDropdown = document.getElementById('product-menu-dropdown');
-            
+
             // --- Logika Splash Screen ---
+            function showMainContent() {
+                if (splashScreen) {
+                    splashScreen.classList.add('opacity-0');
+                    splashScreen.addEventListener('transitionend', () => {
+                        splashScreen.style.display = 'none';
+                    }, { once: true });
+                }
+                if (mainContent) {
+                    mainContent.classList.remove('opacity-0');
+                }
+                initializeScripts();
+            }
+            
             if (sessionStorage.getItem('splashScreenShown')) {
                 splashScreen.style.display = 'none';
-                mainContent.classList.remove('opacity-0');
-                initializeScripts();
+                showMainContent();
             } else {
                 setTimeout(() => {
-                    if (splashScreen) {
-                        splashScreen.classList.add('opacity-0');
-                        splashScreen.addEventListener('transitionend', () => {
-                            splashScreen.style.display = 'none';
-                        }, { once: true });
-                    }
-                    if (mainContent) {
-                        mainContent.classList.remove('opacity-0');
-                    }
-                    initializeScripts();
+                    showMainContent();
                     sessionStorage.setItem('splashScreenShown', 'true');
                 }, 3000);
             }
 
             function initializeScripts() {
-                // --- Logika Menu Dropdown Produk (Click) ---
+                // DIUBAH: Logika menu dropdown disesuaikan untuk mega menu
                 if (productMenu && productMenuButton && productMenuDropdown) {
                     productMenuButton.addEventListener('click', (event) => {
                         event.stopPropagation();
                         productMenuDropdown.classList.toggle('hidden');
                     });
 
+                    // Menutup dropdown jika klik di luar menu
                     window.addEventListener('click', (event) => {
-                        if (!productMenu.contains(event.target) && !productMenuDropdown.classList.contains('hidden')) {
+                        // Cek apakah klik bukan pada tombol DAN bukan di dalam area dropdown
+                        if (!productMenuButton.contains(event.target) && !productMenuDropdown.contains(event.target) && !productMenuDropdown.classList.contains('hidden')) {
                             productMenuDropdown.classList.add('hidden');
                         }
                     });
                 }
 
-                // --- Inisialisasi Slider ---
-                var bannerSwiper = new Swiper('.banner-swiper', {
+                // --- Inisialisasi Slider Banner ---
+                new Swiper('.banner-swiper', {
                     loop: true,
                     autoplay: {
                         delay: 5000,
                         disableOnInteraction: false,
                     },
-                });
-
-                var productSwiper = new Swiper('.product-swiper', {
-                    loop: true,
-                    slidesPerView: 1,
-                    spaceBetween: 20,
-                    autoplay: {
-                        delay: 4000,
-                        disableOnInteraction: false,
-                    },
-                    breakpoints: {
-                        640: { slidesPerView: 2, spaceBetween: 20 },
-                        768: { slidesPerView: 3, spaceBetween: 30 },
-                        1024: { slidesPerView: 4, spaceBetween: 30 },
-                    }
                 });
                 
                 startAboutSlider();
@@ -488,10 +399,14 @@
                 const slides = document.querySelectorAll('.about-slide');
                 if (slides.length === 0) return;
                 let currentSlide = 0;
+
+                // Tampilkan slide pertama secara eksplisit
+                slides[0].style.opacity = '1';
+
                 setInterval(() => {
-                    slides[currentSlide].classList.add('opacity-0');
+                    slides[currentSlide].style.opacity = '0'; 
                     currentSlide = (currentSlide + 1) % slides.length;
-                    slides[currentSlide].classList.remove('opacity-0');
+                    slides[currentSlide].style.opacity = '1';
                 }, 4000);
             }
         });
@@ -499,5 +414,3 @@
 
 </body>
 </html>
-
-
