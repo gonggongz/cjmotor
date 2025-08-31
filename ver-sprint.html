@@ -32,7 +32,7 @@
     <div id="main-content" class="container mx-auto px-4 sm:px-6 pt-4 pb-8">
 
         <!-- Header / Bagian Atas -->
-        <header class="sticky top-0 z-40 flex flex-col items-center space-y-4 bg-white text-gray-800 py-4 shadow-md -mx-4 sm:-mx-6 px-4 sm:px-6">
+        <header class="sticky top-0 z-40 flex flex-col items-center space-y-4 bg-white text-gray-800 py-4 shadow-md -mx-4 sm:-mx-6 px-4 sm:px-6 relative">
             <a href="website_template_sederhana.html" class="flex items-center space-x-2">
                 <img src="https://i.postimg.cc/mhNZ7WrD/Asset-2.png" 
                      alt="CJ Motor Logo" 
@@ -42,51 +42,10 @@
             <nav class="flex flex-wrap justify-center items-center gap-y-2 gap-x-4 md:gap-x-8 text-sm">
                 <a href="website_template_sederhana.html" class="hover:text-green-600 transition-colors duration-300">Beranda</a>
                 <!-- Menu Dropdown Produk -->
-                <div class="relative" id="product-menu">
+                <div id="product-menu">
                     <div id="product-menu-button" class="flex items-center gap-1 hover:text-green-600 transition-colors duration-300 cursor-pointer">
                         <span>Produk</span>
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </div>
-                    <!-- Panel Mega Menu -->
-                    <div id="product-menu-dropdown" class="absolute right-0 md:right-auto md:left-1/2 md:-translate-x-1/2 mt-2 bg-white rounded-md shadow-lg z-50 hidden p-4 w-[90vw] max-w-[700px]">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                            <!-- Kategori 125cc -->
-                            <div class="space-y-1">
-                                <h3 class="text-xs uppercase font-bold text-gray-500 mb-2 px-2">125 cc</h3>
-                                <a href="#" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
-                                    <img src="https://placehold.co/100x100/F9FAFB/374151?text=Vespa+LX" alt="Vespa LX 125" class="w-12 h-12 object-contain">
-                                    <span class="text-sm text-gray-700">Vespa LX 125</span>
-                                </a>
-                            </div>
-                             <!-- Kategori 150cc -->
-                            <div class="space-y-1">
-                                <h3 class="text-xs uppercase font-bold text-gray-500 mb-2 px-2">150 cc</h3>
-                                <a href="halaman-produk.html" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
-                                    <img src="https://i.postimg.cc/FRFKxNPw/1-946-snake-01-2.png" alt="Vespa 946 Dragon" class="w-12 h-12 object-contain">
-                                    <span class="text-sm text-gray-700">Vespa 946 Dragon</span>
-                                </a>
-                                <a href="#" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
-                                    <img src="https://i.postimg.cc/0Nsjbp7k/3-sprint_blu_officina_01_3.png" alt="Vespa Sprint" class="w-12 h-12 object-contain">
-                                    <span class="text-sm text-gray-700">Vespa Sprint</span>
-                                </a>
-                                <a href="#" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
-                                    <img src="https://placehold.co/100x100/F9FAFB/374151?text=Sprint+S" alt="Vespa Sprint S" class="w-12 h-12 object-contain">
-                                    <span class="text-sm text-gray-700">Vespa Sprint S</span>
-                                </a>
-                                <a href="#" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
-                                    <img src="https://placehold.co/100x100/F9FAFB/374151?text=Primavera" alt="Vespa Primavera" class="w-12 h-12 object-contain">
-                                    <span class="text-sm text-gray-700">Primavera</span>
-                                </a>
-                            </div>
-                            <!-- Kategori 300cc -->
-                            <div class="space-y-1">
-                                <h3 class="text-xs uppercase font-bold text-gray-500 mb-2 px-2">300 cc</h3>
-                                <a href="halaman-produk-2.html" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
-                                    <img src="https://i.postimg.cc/tTr4SwwJ/2-gtv_blu_officina_01_3.png" alt="Vespa GTV" class="w-12 h-12 object-contain">
-                                    <span class="text-sm text-gray-700">Vespa GTV</span>
-                                </a>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <a href="#" class="hover:text-green-600 transition-colors duration-300">Aksesoris</a>
@@ -94,6 +53,47 @@
                 <a href="website_template_sederhana.html#layanan-kami" class="hover:text-green-600 transition-colors duration-300">Layanan</a>
                 <a href="website_template_sederhana.html#lokasi-kami" class="hover:text-green-600 transition-colors duration-300">Lokasi</a>
             </nav>
+            <!-- Panel Mega Menu -->
+            <div id="product-menu-dropdown" class="absolute top-24 left-1/2 -translate-x-1/2 bg-white rounded-md shadow-lg z-50 hidden p-4 w-[90vw] max-w-[700px]">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                    <!-- Kategori 125cc -->
+                    <div class="space-y-1">
+                        <h3 class="text-xs uppercase font-bold text-gray-500 mb-2 px-2">125 cc</h3>
+                        <a href="#" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                            <img src="https://placehold.co/100x100/F9FAFB/374151?text=Vespa+LX" alt="Vespa LX 125" class="w-12 h-12 object-contain">
+                            <span class="text-sm text-gray-700">Vespa LX 125</span>
+                        </a>
+                    </div>
+                     <!-- Kategori 150cc -->
+                    <div class="space-y-1">
+                        <h3 class="text-xs uppercase font-bold text-gray-500 mb-2 px-2">150 cc</h3>
+                        <a href="halaman-produk.html" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                            <img src="https://i.postimg.cc/FRFKxNPw/1-946-snake-01-2.png" alt="Vespa 946 Dragon" class="w-12 h-12 object-contain">
+                            <span class="text-sm text-gray-700">Vespa 946 Dragon</span>
+                        </a>
+                        <a href="#" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                            <img src="https://i.postimg.cc/0Nsjbp7k/3-sprint_blu_officina_01_3.png" alt="Vespa Sprint" class="w-12 h-12 object-contain">
+                            <span class="text-sm text-gray-700">Vespa Sprint</span>
+                        </a>
+                        <a href="#" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                            <img src="https://placehold.co/100x100/F9FAFB/374151?text=Sprint+S" alt="Vespa Sprint S" class="w-12 h-12 object-contain">
+                            <span class="text-sm text-gray-700">Vespa Sprint S</span>
+                        </a>
+                        <a href="#" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                            <img src="https://placehold.co/100x100/F9FAFB/374151?text=Primavera" alt="Vespa Primavera" class="w-12 h-12 object-contain">
+                            <span class="text-sm text-gray-700">Primavera</span>
+                        </a>
+                    </div>
+                    <!-- Kategori 300cc -->
+                    <div class="space-y-1">
+                        <h3 class="text-xs uppercase font-bold text-gray-500 mb-2 px-2">300 cc</h3>
+                        <a href="halaman-produk-2.html" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                            <img src="https://i.postimg.cc/tTr4SwwJ/2-gtv_blu_officina_01_3.png" alt="Vespa GTV" class="w-12 h-12 object-contain">
+                            <span class="text-sm text-gray-700">Vespa GTV</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </header>
 
         <!-- Main Content Section -->
@@ -148,17 +148,16 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // --- Logika Menu Dropdown Produk (Click) ---
-            const productMenu = document.getElementById('product-menu');
             const productMenuButton = document.getElementById('product-menu-button');
             const productMenuDropdown = document.getElementById('product-menu-dropdown');
-            if (productMenu && productMenuButton && productMenuDropdown) {
+            if (productMenuButton && productMenuDropdown) {
                 productMenuButton.addEventListener('click', (event) => {
                     event.stopPropagation();
                     productMenuDropdown.classList.toggle('hidden');
                 });
 
                 window.addEventListener('click', (event) => {
-                    if (!productMenu.contains(event.target) && !productMenuDropdown.classList.contains('hidden')) {
+                    if (!productMenuButton.contains(event.target) && !productMenuDropdown.contains(event.target) && !productMenuDropdown.classList.contains('hidden')) {
                         productMenuDropdown.classList.add('hidden');
                     }
                 });
