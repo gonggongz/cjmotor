@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edisi Spesial - Vespa 946 Dragon - CJ Motor</title>
+    
+    <!-- Memuat Tailwind CSS untuk styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Memuat font Lato dari Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+        }
+        .banner-overlay {
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
+        }
+        .banner-container:hover .banner-overlay {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800 antialiased">
+
+    <!-- Kontainer Utama -->
+    <div id="main-content" class="container mx-auto px-6 pt-4 pb-8">
+
+        <!-- Header / Bagian Atas -->
+        <header class="sticky top-0 z-40 flex flex-col items-center space-y-2 bg-white text-gray-800 py-4 shadow-md -mx-6 px-6">
+            <a href="website_template_sederhana.html" class="flex items-center space-x-2">
+                <img src="https://i.postimg.cc/mhNZ7WrD/Asset-2.png" 
+                     alt="CJ Motor Logo" 
+                     class="h-7 w-auto">
+                <span class="text-xs font-bold text-gray-800">CJ Motor</span>
+            </a>
+            <nav class="flex flex-wrap justify-center items-center gap-x-8">
+                <a href="website_template_sederhana.html" class="hover:text-green-600 transition-colors duration-300">Beranda</a>
+                <!-- Menu Dropdown Produk -->
+                <div class="relative" id="product-menu">
+                    <div id="product-menu-button" class="flex items-center gap-1 hover:text-green-600 transition-colors duration-300 cursor-pointer">
+                        <span>Produk</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </div>
+                    <!-- Panel Mega Menu -->
+                    <div id="product-menu-dropdown" class="absolute left-1/2 -translate-x-1/2 mt-2 bg-white rounded-md shadow-lg z-50 hidden p-4" style="width: 700px;">
+                        <div class="grid grid-cols-3 gap-x-8">
+                            <!-- Kategori 125cc -->
+                            <div class="space-y-1">
+                                <h3 class="text-xs uppercase font-bold text-gray-500 mb-2 px-2">125 cc</h3>
+                                <a href="#" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                                    <img src="https://placehold.co/100x100/F9FAFB/374151?text=Vespa+LX" alt="Vespa LX 125" class="w-12 h-12 object-contain">
+                                    <span class="text-sm text-gray-700">Vespa LX 125</span>
+                                </a>
+                            </div>
+                             <!-- Kategori 150cc -->
+                            <div class="space-y-1">
+                                <h3 class="text-xs uppercase font-bold text-gray-500 mb-2 px-2">150 cc</h3>
+                                <a href="halaman-produk.html" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                                    <img src="https://i.postimg.cc/FRFKxNPw/1-946-snake-01-2.png" alt="Vespa 946 Dragon" class="w-12 h-12 object-contain">
+                                    <span class="text-sm text-gray-700">Vespa 946 Dragon</span>
+                                </a>
+                                <a href="#" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                                    <img src="https://i.postimg.cc/0Nsjbp7k/3-sprint_blu_officina_01_3.png" alt="Vespa Sprint" class="w-12 h-12 object-contain">
+                                    <span class="text-sm text-gray-700">Vespa Sprint</span>
+                                </a>
+                                <a href="#" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                                    <img src="https://placehold.co/100x100/F9FAFB/374151?text=Sprint+S" alt="Vespa Sprint S" class="w-12 h-12 object-contain">
+                                    <span class="text-sm text-gray-700">Vespa Sprint S</span>
+                                </a>
+                                <a href="#" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                                    <img src="https://placehold.co/100x100/F9FAFB/374151?text=Primavera" alt="Vespa Primavera" class="w-12 h-12 object-contain">
+                                    <span class="text-sm text-gray-700">Primavera</span>
+                                </a>
+                            </div>
+                            <!-- Kategori 300cc -->
+                            <div class="space-y-1">
+                                <h3 class="text-xs uppercase font-bold text-gray-500 mb-2 px-2">300 cc</h3>
+                                <a href="halaman-produk-2.html" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                                    <img src="https://i.postimg.cc/tTr4SwwJ/2-gtv_blu_officina_01_3.png" alt="Vespa GTV" class="w-12 h-12 object-contain">
+                                    <span class="text-sm text-gray-700">Vespa GTV</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="hover:text-green-600 transition-colors duration-300">Aksesoris</a>
+                <a href="website_template_sederhana.html#tentang-kami" class="hover:text-green-600 transition-colors duration-300">Tentang</a>
+                <a href="website_template_sederhana.html#layanan-kami" class="hover:text-green-600 transition-colors duration-300">Layanan</a>
+                <a href="website_template_sederhana.html#lokasi-kami" class="hover:text-green-600 transition-colors duration-300">Lokasi</a>
+            </nav>
+        </header>
+
+        <!-- Main Content Section -->
+        <main class="mt-12">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl font-bold text-green-700">Vespa 946 Dragon: Edisi Spesial</h1>
+                <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
+                    Jelajahi koleksi eksklusif yang menyertai peluncuran Vespa 946 Dragon. Setiap item dirancang dengan detail dan semangat yang sama, menjadikannya lebih dari sekadar aksesoris, tetapi sebuah pernyataan gaya.
+                </p>
+            </div>
+
+            <!-- Product Versions Grid -->
+            <div class="grid grid-cols-1 gap-8 max-w-4xl mx-auto">
+
+                <!-- Banner 1: Collector's Edition -->
+                <div class="group banner-container relative rounded-lg shadow-lg overflow-hidden cursor-pointer bg-gray-900">
+                    <img src="https://placehold.co/766x383/052e16/FFFFFF?text=Dragon+Collector's+Edition" alt="Dragon Collector's Edition" class="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-400">
+                    <div class="banner-overlay absolute inset-0 bg-black bg-opacity-60 flex flex-col justify-end p-6 text-white">
+                        <h3 class="text-2xl font-bold mb-2">Dragon Collector's Edition</h3>
+                        <p class="text-sm">Paket eksklusif termasuk unit Vespa 946 Dragon, helm serasi, dan jaket varsity edisi terbatas. Simbol kemewahan dan kolektibilitas.</p>
+                    </div>
+                </div>
+
+                <!-- Banner 2: Varsity Jacket -->
+                <div class="group banner-container relative rounded-lg shadow-lg overflow-hidden cursor-pointer bg-gray-900">
+                    <img src="https://placehold.co/766x383/166534/FFFFFF?text=Varsity+Jacket" alt="Varsity Jacket" class="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-400">
+                    <div class="banner-overlay absolute inset-0 bg-black bg-opacity-60 flex flex-col justify-end p-6 text-white">
+                        <h3 class="text-2xl font-bold mb-2">Varsity Jacket Bundle</h3>
+                        <p class="text-sm">Tampil gaya dengan jaket varsity Dragon yang ikonik. Terbuat dari wol dan kulit nappa, dengan bordir naga yang memukau di bagian dada dan punggung.</p>
+                    </div>
+                </div>
+
+                <!-- Banner 3: Lunar New Year Helmet -->
+                <div class="group banner-container relative rounded-lg shadow-lg overflow-hidden cursor-pointer bg-gray-900">
+                    <img src="https://placehold.co/766x383/15803d/FFFFFF?text=Lunar+Helmet" alt="Lunar New Year Helmet" class="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-400">
+                    <div class="banner-overlay absolute inset-0 bg-black bg-opacity-60 flex flex-col justify-end p-6 text-white">
+                        <h3 class="text-2xl font-bold mb-2">Lunar New Year Helmet</h3>
+                        <p class="text-sm">Helm edisi khusus Imlek dengan grafis naga yang senada, memberikan perlindungan maksimal dengan gaya yang tak tertandingi.</p>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <!-- Footer / Bagian Bawah -->
+        <footer class="flex justify-end text-gray-500 border-t border-gray-200 pt-6 mt-24">
+            <p class="text-xs">&copy; 2024 CJ Motor. Hak Cipta Dilindungi.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Logika Menu Dropdown Produk (Click) ---
+            const productMenu = document.getElementById('product-menu');
+            const productMenuButton = document.getElementById('product-menu-button');
+            const productMenuDropdown = document.getElementById('product-menu-dropdown');
+            if (productMenu && productMenuButton && productMenuDropdown) {
+                productMenuButton.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    productMenuDropdown.classList.toggle('hidden');
+                });
+
+                window.addEventListener('click', (event) => {
+                    if (!productMenu.contains(event.target) && !productMenuDropdown.classList.contains('hidden')) {
+                        productMenuDropdown.classList.add('hidden');
+                    }
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>
+
