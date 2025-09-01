@@ -30,25 +30,33 @@
             color: #4b5563; /* gray-600 */
             top: 50%;
             transform: translateY(-50%);
-            width: 2rem;
-            height: 2rem;
+            width: 2.5rem; /* Diperbesar agar mudah diklik */
+            height: 2.5rem; /* Diperbesar agar mudah diklik */
             background-color: white;
             border-radius: 9999px;
             box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            transition: opacity 0.3s;
+        }
+        /* Sembunyikan tombol navigasi di ponsel */
+        @media (max-width: 767px) {
+            .features-swiper .swiper-button-next,
+            .features-swiper .swiper-button-prev {
+                display: none;
+            }
         }
         .features-swiper .swiper-button-next:after,
         .features-swiper .swiper-button-prev:after {
-            font-size: .875rem; /* 14px */
+            font-size: 1rem; /* 16px */
             font-weight: 700;
         }
         .features-swiper {
-            padding-left: 1rem;
+            padding-left: 1rem; /* Padding untuk ponsel */
             padding-right: 1rem;
         }
         @media (min-width: 640px) {
             .features-swiper {
-                padding-left: 2rem;
-                padding-right: 2rem;
+                padding-left: 2.5rem; /* Padding lebih besar untuk desktop */
+                padding-right: 2.5rem;
             }
         }
     </style>
@@ -56,7 +64,7 @@
 <body class="bg-gray-50 text-gray-800 antialiased">
 
     <!-- Kontainer Utama -->
-    <div id="main-content" class="container mx-auto px-4 sm:px-6 pt-4 pb-8">
+    <div id="main-content" class="container mx-auto max-w-7xl px-4 sm:px-6 pt-4 pb-8">
 
         <!-- Header / Bagian Atas -->
         <header class="sticky top-0 z-40 flex items-center justify-between md:justify-center md:flex-col md:space-y-4 bg-white text-gray-800 py-4 shadow-md -mx-4 sm:-mx-6 px-4 sm:px-6 h-20 md:h-auto">
@@ -78,43 +86,14 @@
                 <a href="website_template_sederhana.html#lokasi-kami" class="hover:text-green-600 transition-colors duration-300">Lokasi</a>
             </nav>
             <button id="mobile-menu-button" class="md:hidden p-2 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-400">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                <svg class="w-6 h-6" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                <span class="sr-only">Buka menu</span>
             </button>
             <div id="product-menu-dropdown" class="absolute top-full left-1/2 -translate-x-1/2 bg-white rounded-md shadow-lg z-50 hidden p-4 w-[90vw] max-w-[700px]">
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                    <div class="space-y-1">
-                        <h3 class="text-xs uppercase font-bold text-gray-500 mb-2 px-2">125 cc</h3>
-                        <a href="#" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
-                            <img src="https://placehold.co/100x100/F9FAFB/374151?text=Vespa+LX" alt="Vespa LX 125" class="w-12 h-12 object-contain">
-                            <span class="text-sm text-gray-700">Vespa LX 125</span>
-                        </a>
-                    </div>
-                    <div class="space-y-1">
-                        <h3 class="text-xs uppercase font-bold text-gray-500 mb-2 px-2">150 cc</h3>
-                        <a href="halaman-produk.html" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
-                            <img src="https://i.postimg.cc/FRFKxNPw/1-946-snake-01-2.png" alt="Vespa 946 Dragon" class="w-12 h-12 object-contain">
-                            <span class="text-sm text-gray-700">Vespa 946 Dragon</span>
-                        </a>
-                        <a href="#" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
-                            <img src="https://i.postimg.cc/0Nsjbp7k/3-sprint_blu_officina_01_3.png" alt="Vespa Sprint" class="w-12 h-12 object-contain">
-                            <span class="text-sm text-gray-700">Vespa Sprint</span>
-                        </a>
-                        <a href="#" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
-                            <img src="https://placehold.co/100x100/F9FAFB/374151?text=Sprint+S" alt="Vespa Sprint S" class="w-12 h-12 object-contain">
-                            <span class="text-sm text-gray-700">Vespa Sprint S</span>
-                        </a>
-                        <a href="#" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
-                            <img src="https://placehold.co/100x100/F9FAFB/374151?text=Primavera" alt="Vespa Primavera" class="w-12 h-12 object-contain">
-                            <span class="text-sm text-gray-700">Primavera</span>
-                        </a>
-                    </div>
-                    <div class="space-y-1">
-                        <h3 class="text-xs uppercase font-bold text-gray-500 mb-2 px-2">300 cc</h3>
-                        <a href="halaman-produk-2.html" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
-                            <img src="https://i.postimg.cc/tTr4SwwJ/2-gtv_blu_officina_01_3.png" alt="Vespa GTV" class="w-12 h-12 object-contain">
-                            <span class="text-sm text-gray-700">Vespa GTV</span>
-                        </a>
-                    </div>
+                    <div class="space-y-1"><h3 class="text-xs uppercase font-bold text-gray-500 mb-2 px-2">125 cc</h3><a href="#" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"><img src="https://placehold.co/100x100/F9FAFB/374151?text=Vespa+LX" alt="Vespa LX 125" class="w-12 h-12 object-contain"><span class="text-sm text-gray-700">Vespa LX 125</span></a></div>
+                    <div class="space-y-1"><h3 class="text-xs uppercase font-bold text-gray-500 mb-2 px-2">150 cc</h3><a href="halaman-produk.html" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"><img src="https://i.postimg.cc/FRFKxNPw/1-946-snake-01-2.png" alt="Vespa 946 Dragon" class="w-12 h-12 object-contain"><span class="text-sm text-gray-700">Vespa 946 Dragon</span></a><a href="#" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"><img src="https://i.postimg.cc/0Nsjbp7k/3-sprint_blu_officina_01_3.png" alt="Vespa Sprint" class="w-12 h-12 object-contain"><span class="text-sm text-gray-700">Vespa Sprint</span></a><a href="#" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"><img src="https://placehold.co/100x100/F9FAFB/374151?text=Sprint+S" alt="Vespa Sprint S" class="w-12 h-12 object-contain"><span class="text-sm text-gray-700">Vespa Sprint S</span></a><a href="#" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"><img src="https://placehold.co/100x100/F9FAFB/374151?text=Primavera" alt="Vespa Primavera" class="w-12 h-12 object-contain"><span class="text-sm text-gray-700">Primavera</span></a></div>
+                    <div class="space-y-1"><h3 class="text-xs uppercase font-bold text-gray-500 mb-2 px-2">300 cc</h3><a href="halaman-produk-2.html" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"><img src="https://i.postimg.cc/tTr4SwwJ/2-gtv_blu_officina_01_3.png" alt="Vespa GTV" class="w-12 h-12 object-contain"><span class="text-sm text-gray-700">Vespa GTV</span></a></div>
                 </div>
             </div>
         </header>
@@ -124,28 +103,25 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-start">
                 
                 <!-- Galeri Gambar Produk -->
-                <div class="bg-white p-4 rounded-lg shadow-lg sticky top-24 md:top-[140px]">
-                    <img id="main-product-image" src="https://i.postimg.cc/FRFKxNPw/1-946-snake-01-2.png" alt="Vespa 946 Dragon" class="w-full h-auto object-contain rounded-md transition-all duration-300 aspect-square">
+                <div class="bg-white p-4 rounded-lg shadow-lg lg:sticky top-24 md:top-[140px]">
+                    <img id="main-product-image" src="https://i.postimg.cc/FRFKxNPw/1-946-snake-01-2.png" alt="Vespa 946 Dragon tampak depan" class="w-full h-auto object-contain rounded-md transition-all duration-300 aspect-square">
                     <div class="mt-4 grid grid-cols-4 gap-2 sm:gap-4">
-                        <img id="thumb-1" src="https://i.postimg.cc/FRFKxNPw/1-946-snake-01-2.png" alt="Thumbnail 1" class="product-thumbnail w-full h-20 sm:h-24 object-contain cursor-pointer rounded-md border-2 hover:border-green-500 transition-colors duration-300 thumbnail-active">
-                        <img id="thumb-2" src="https://placehold.co/300x200/F9FAFB/374151?text=Tampak+Samping" alt="Thumbnail 2" class="product-thumbnail w-full h-20 sm:h-24 object-contain cursor-pointer rounded-md border-2 border-transparent hover:border-green-500 transition-colors duration-300">
-                        <img id="thumb-3" src="https://placehold.co/300x200/F9FAFB/374151?text=Detail+Lampu" alt="Thumbnail 3" class="product-thumbnail w-full h-20 sm:h-24 object-contain cursor-pointer rounded-md border-2 border-transparent hover:border-green-500 transition-colors duration-300">
-                        <img id="thumb-4" src="https://placehold.co/300x200/F9FAFB/374151?text=Detail+Jok" alt="Thumbnail 4" class="product-thumbnail w-full h-20 sm:h-24 object-contain cursor-pointer rounded-md border-2 border-transparent hover:border-green-500 transition-colors duration-300">
+                        <img id="thumb-1" src="https://i.postimg.cc/FRFKxNPw/1-946-snake-01-2.png" alt="Tampilan depan Vespa 946 Dragon" class="product-thumbnail w-full h-20 sm:h-24 object-contain cursor-pointer rounded-md border-2 hover:border-green-500 transition-colors duration-300 thumbnail-active">
+                        <img id="thumb-2" src="https://placehold.co/300x200/F9FAFB/374151?text=Tampak+Samping" alt="Tampilan samping Vespa 946 Dragon" class="product-thumbnail w-full h-20 sm:h-24 object-contain cursor-pointer rounded-md border-2 border-transparent hover:border-green-500 transition-colors duration-300">
+                        <img id="thumb-3" src="https://placehold.co/300x200/F9FAFB/374151?text=Detail+Lampu" alt="Detail lampu depan Vespa 946 Dragon" class="product-thumbnail w-full h-20 sm:h-24 object-contain cursor-pointer rounded-md border-2 border-transparent hover:border-green-500 transition-colors duration-300">
+                        <img id="thumb-4" src="https://placehold.co/300x200/F9FAFB/374151?text=Detail+Jok" alt="Detail jok kulit Vespa 946 Dragon" class="product-thumbnail w-full h-20 sm:h-24 object-contain cursor-pointer rounded-md border-2 border-transparent hover:border-green-500 transition-colors duration-300">
                     </div>
                     <div class="mt-6 border-t border-gray-200 pt-4">
                         <h4 class="text-sm font-semibold text-gray-700 mb-3">Pilihan Warna:</h4>
                         <div class="space-y-2">
                             <button class="color-option w-full flex items-center gap-3 p-2 rounded-lg border-2 border-green-600 bg-green-50 transition-colors duration-200" data-main-image="https://i.postimg.cc/FRFKxNPw/1-946-snake-01-2.png" data-thumb1="https://i.postimg.cc/FRFKxNPw/1-946-snake-01-2.png" data-thumb2="https://placehold.co/300x200/F9FAFB/374151?text=Green+Samping" data-thumb3="https://placehold.co/300x200/F9FAFB/374151?text=Green+Lampu" data-thumb4="https://placehold.co/300x200/F9FAFB/374151?text=Green+Jok">
-                                <div class="w-6 h-6 rounded-full bg-emerald-700 border border-gray-400 flex-shrink-0"></div>
-                                <span class="text-sm font-medium text-gray-800">Emerald Green</span>
+                                <div class="w-6 h-6 rounded-full bg-emerald-700 border border-gray-400 flex-shrink-0"></div><span class="text-sm font-medium text-gray-800">Emerald Green</span>
                             </button>
                             <button class="color-option w-full flex items-center gap-3 p-2 rounded-lg border-2 border-transparent transition-colors duration-200" data-main-image="https://placehold.co/800x600/111827/FFFFFF?text=946+Dragon+Black" data-thumb1="https://placehold.co/300x200/111827/FFFFFF?text=Black+Utama" data-thumb2="https://placehold.co/300x200/111827/FFFFFF?text=Black+Samping" data-thumb3="https://placehold.co/300x200/111827/FFFFFF?text=Black+Lampu" data-thumb4="https://placehold.co/300x200/111827/FFFFFF?text=Black+Jok">
-                                <div class="w-6 h-6 rounded-full bg-gray-800 border border-gray-400 flex-shrink-0"></div>
-                                <span class="text-sm font-medium text-gray-800">Glossy Black</span>
+                                <div class="w-6 h-6 rounded-full bg-gray-800 border border-gray-400 flex-shrink-0"></div><span class="text-sm font-medium text-gray-800">Glossy Black</span>
                             </button>
                             <button class="color-option w-full flex items-center gap-3 p-2 rounded-lg border-2 border-transparent transition-colors duration-200" data-main-image="https://placehold.co/800x600/b0bcd4/FFFFFF?text=946+Dragon+Steel+Blue" data-thumb1="https://placehold.co/300x200/b0bcd4/FFFFFF?text=Blue+Utama" data-thumb2="https://placehold.co/300x200/b0bcd4/FFFFFF?text=Blue+Samping" data-thumb3="https://placehold.co/300x200/b0bcd4/FFFFFF?text=Blue+Lampu" data-thumb4="https://placehold.co/300x200/b0bcd4/FFFFFF?text=Blue+Jok">
-                                <div class="w-6 h-6 rounded-full border border-gray-400 flex-shrink-0" style="background-color: #b0bcd4;"></div>
-                                <span class="text-sm font-medium text-gray-800">Steel Blue</span>
+                                <div class="w-6 h-6 rounded-full border border-gray-400 flex-shrink-0" style="background-color: #b0bcd4;"></div><span class="text-sm font-medium text-gray-800">Steel Blue</span>
                             </button>
                         </div>
                     </div>
@@ -154,31 +130,23 @@
                 <!-- Informasi Produk -->
                 <div class="bg-white p-6 sm:p-8 rounded-lg shadow-lg">
                     <h1 class="text-3xl lg:text-4xl font-bold tracking-tight mb-3 text-green-700">Vespa 946 Dragon</h1>
-                    <p class="text-gray-600 leading-relaxed mb-6">
-                        Merayakan Tahun Naga, Vespa 946 Dragon adalah mahakarya edisi terbatas yang memadukan keanggunan Italia dengan kekuatan mitologi Timur. Sebuah koleksi eksklusif bagi para pengendara sejati.
-                    </p>
-                    <div class="mb-6">
-                        <a href="halaman-versi-produk.html" class="w-full text-center bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-3 px-6 rounded-lg transition-colors duration-300 inline-block">
-                            Lihat Edisi Spesial & Aksesoris &rarr;
-                        </a>
-                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-6">Merayakan Tahun Naga, Vespa 946 Dragon adalah mahakarya edisi terbatas yang memadukan keanggunan Italia dengan kekuatan mitologi Timur. Sebuah koleksi eksklusif bagi para pengendara sejati.</p>
+                    <div class="mb-6"><a href="halaman-versi-produk.html" class="w-full text-center bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-3 px-6 rounded-lg transition-colors duration-300 inline-block">Lihat Edisi Spesial & Aksesoris &rarr;</a></div>
                     <div class="bg-gray-100 rounded-lg p-6 mb-6">
-                        <div class="flex justify-between items-center mb-4">
+                        <div class="flex flex-wrap justify-between items-center mb-4 gap-2">
                             <span class="text-lg text-gray-600">Harga Mulai</span>
-                            <span class="text-3xl font-bold text-green-700">Rp 250jt</span>
+                            <span class="text-2xl sm:text-3xl font-bold text-green-700">Rp 250.000.000</span>
                         </div>
                         <p class="text-xs text-gray-500 text-right mb-4">OTR Jakarta (Perkiraan)</p>
-                        <a href="website_template_sederhana.html#lokasi-kami" class="w-full text-center bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg transition-transform duration-300 inline-block transform hover:scale-105 shadow hover:shadow-lg">
-                            Minta Penawaran
-                        </a>
+                        <a href="website_template_sederhana.html#lokasi-kami" class="w-full text-center bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg transition-transform duration-300 inline-block transform hover:scale-105 shadow hover:shadow-lg">Minta Penawaran</a>
                     </div>
                     <div class="border-t border-gray-200 pt-6">
                         <h3 class="text-xl font-semibold mb-4">Spesifikasi Utama</h3>
                         <ul class="space-y-4 text-gray-600">
-                            <li class="flex items-center gap-4"><svg class="w-6 h-6 text-green-600 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a5.25 5.25 0 016.385 5.584M12 6.75a5.25 5.25 0 00-6.385 5.584M12 6.75v12.75M12 19.5a5.25 5.25 0 01-6.385-5.584M12 19.5a5.25 5.25 0 006.385-5.584" /></svg><span><strong class="text-gray-800">Mesin:</strong> 150cc, 3-valve, silinder tunggal</span></li>
-                            <li class="flex items-center gap-4"><svg class="w-6 h-6 text-green-600 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" /></svg><span><strong class="text-gray-800">Pendingin:</strong> Sirkulasi Udara Paksa</span></li>
-                            <li class="flex items-center gap-4"><svg class="w-6 h-6 text-green-600 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" /></svg><span><strong class="text-gray-800">Sistem Rem:</strong> ABS & ASR</span></li>
-                            <li class="flex items-center gap-4"><svg class="w-6 h-6 text-green-600 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.286z" /></svg><span><strong class="text-gray-800">Rangka:</strong> Baja Monokok</span></li>
+                            <li class="flex items-start gap-4"><svg class="w-6 h-6 text-green-600 flex-shrink-0 mt-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a5.25 5.25 0 016.385 5.584M12 6.75a5.25 5.25 0 00-6.385 5.584M12 6.75v12.75M12 19.5a5.25 5.25 0 01-6.385-5.584M12 19.5a5.25 5.25 0 006.385-5.584" /></svg><span><strong class="text-gray-800">Mesin:</strong> 150cc, 3-valve, silinder tunggal</span></li>
+                            <li class="flex items-start gap-4"><svg class="w-6 h-6 text-green-600 flex-shrink-0 mt-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" /></svg><span><strong class="text-gray-800">Pendingin:</strong> Sirkulasi Udara Paksa</span></li>
+                            <li class="flex items-start gap-4"><svg class="w-6 h-6 text-green-600 flex-shrink-0 mt-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" /></svg><span><strong class="text-gray-800">Sistem Rem:</strong> ABS & ASR</span></li>
+                            <li class="flex items-start gap-4"><svg class="w-6 h-6 text-green-600 flex-shrink-0 mt-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.286z" /></svg><span><strong class="text-gray-800">Rangka:</strong> Baja Monokok</span></li>
                         </ul>
                     </div>
                 </div>
@@ -186,19 +154,19 @@
 
             <!-- Bagian Fitur Unggulan -->
             <section class="mt-12 md:mt-20">
-                <h2 class="text-3xl font-bold text-center mb-8">Fitur Unggulan</h2>
+                <h2 class="text-2xl sm:text-3xl font-bold text-center mb-8">Fitur Unggulan</h2>
                 <div class="swiper-container features-swiper relative">
-                    <div class="swiper-wrapper items-start pb-4">
-                        <div class="swiper-slide text-center"><div class="bg-white rounded-lg shadow-md w-full aspect-square mx-auto flex items-center justify-center p-2"><img src="https://placehold.co/100x100/FFFFFF/16a34a?text=LED" alt="Fitur 1" class="max-w-full max-h-full object-contain"></div><p class="font-semibold text-xs mt-2">Lampu Full LED</p></div>
-                        <div class="swiper-slide text-center"><div class="bg-white rounded-lg shadow-md w-full aspect-square mx-auto flex items-center justify-center p-2"><img src="https://placehold.co/100x100/FFFFFF/16a34a?text=Naga" alt="Fitur 2" class="max-w-full max-h-full object-contain"></div><p class="font-semibold text-xs mt-2">Grafis Naga Eksklusif</p></div>
-                        <div class="swiper-slide text-center"><div class="bg-white rounded-lg shadow-md w-full aspect-square mx-auto flex items-center justify-center p-2"><img src="https://placehold.co/100x100/FFFFFF/16a34a?text=ABS" alt="Fitur 3" class="max-w-full max-h-full object-contain"></div><p class="font-semibold text-xs mt-2">Sistem Rem ABS</p></div>
-                        <div class="swiper-slide text-center"><div class="bg-white rounded-lg shadow-md w-full aspect-square mx-auto flex items-center justify-center p-2"><img src="https://placehold.co/100x100/FFFFFF/16a34a?text=Digital" alt="Fitur 4" class="max-w-full max-h-full object-contain"></div><p class="font-semibold text-xs mt-2">Panel Instrumen Digital</p></div>
-                        <div class="swiper-slide text-center"><div class="bg-white rounded-lg shadow-md w-full aspect-square mx-auto flex items-center justify-center p-2"><img src="https://placehold.co/100x100/FFFFFF/16a34a?text=Kulit" alt="Fitur 5" class="max-w-full max-h-full object-contain"></div><p class="font-semibold text-xs mt-2">Jok Kulit Asli</p></div>
-                        <div class="swiper-slide text-center"><div class="bg-white rounded-lg shadow-md w-full aspect-square mx-auto flex items-center justify-center p-2"><img src="https://placehold.co/100x100/FFFFFF/16a34a?text=ASR" alt="Fitur 6" class="max-w-full max-h-full object-contain"></div><p class="font-semibold text-xs mt-2">Kontrol Traksi ASR</p></div>
-                        <div class="swiper-slide text-center"><div class="bg-white rounded-lg shadow-md w-full aspect-square mx-auto flex items-center justify-center p-2"><img src="https://placehold.co/100x100/FFFFFF/16a34a?text=Velg" alt="Fitur 7" class="max-w-full max-h-full object-contain"></div><p class="font-semibold text-xs mt-2">Velg Aluminium 12"</p></div>
-                        <div class="swiper-slide text-center"><div class="bg-white rounded-lg shadow-md w-full aspect-square mx-auto flex items-center justify-center p-2"><img src="https://placehold.co/100x100/FFFFFF/16a34a?text=USB" alt="Fitur 8" class="max-w-full max-h-full object-contain"></div><p class="font-semibold text-xs mt-2">Port Pengisian USB</p></div>
-                        <div class="swiper-slide text-center"><div class="bg-white rounded-lg shadow-md w-full aspect-square mx-auto flex items-center justify-center p-2"><img src="https://placehold.co/100x100/FFFFFF/16a34a?text=Suspensi" alt="Fitur 9" class="max-w-full max-h-full object-contain"></div><p class="font-semibold text-xs mt-2">Suspensi Canggih</p></div>
-                        <div class="swiper-slide text-center"><div class="bg-white rounded-lg shadow-md w-full aspect-square mx-auto flex items-center justify-center p-2"><img src="https://placehold.co/100x100/FFFFFF/16a34a?text=Bodi" alt="Fitur 10" class="max-w-full max-h-full object-contain"></div><p class="font-semibold text-xs mt-2">Desain Bodi Monokok</p></div>
+                    <div class="swiper-wrapper items-stretch pb-4">
+                        <div class="swiper-slide h-auto flex flex-col"><div class="bg-white rounded-lg shadow-md w-full aspect-square mx-auto flex items-center justify-center p-3"><img src="https://placehold.co/100x100/FFFFFF/16a34a?text=LED" alt="Ikon lampu LED" class="max-w-full max-h-full object-contain"></div><p class="font-semibold text-xs mt-3 flex-grow">Lampu Full LED</p></div>
+                        <div class="swiper-slide h-auto flex flex-col"><div class="bg-white rounded-lg shadow-md w-full aspect-square mx-auto flex items-center justify-center p-3"><img src="https://placehold.co/100x100/FFFFFF/16a34a?text=Naga" alt="Ikon naga" class="max-w-full max-h-full object-contain"></div><p class="font-semibold text-xs mt-3 flex-grow">Grafis Naga Eksklusif</p></div>
+                        <div class="swiper-slide h-auto flex flex-col"><div class="bg-white rounded-lg shadow-md w-full aspect-square mx-auto flex items-center justify-center p-3"><img src="https://placehold.co/100x100/FFFFFF/16a34a?text=ABS" alt="Ikon rem ABS" class="max-w-full max-h-full object-contain"></div><p class="font-semibold text-xs mt-3 flex-grow">Sistem Rem ABS</p></div>
+                        <div class="swiper-slide h-auto flex flex-col"><div class="bg-white rounded-lg shadow-md w-full aspect-square mx-auto flex items-center justify-center p-3"><img src="https://placehold.co/100x100/FFFFFF/16a34a?text=Digital" alt="Ikon panel digital" class="max-w-full max-h-full object-contain"></div><p class="font-semibold text-xs mt-3 flex-grow">Panel Instrumen Digital</p></div>
+                        <div class="swiper-slide h-auto flex flex-col"><div class="bg-white rounded-lg shadow-md w-full aspect-square mx-auto flex items-center justify-center p-3"><img src="https://placehold.co/100x100/FFFFFF/16a34a?text=Kulit" alt="Ikon jok kulit" class="max-w-full max-h-full object-contain"></div><p class="font-semibold text-xs mt-3 flex-grow">Jok Kulit Asli</p></div>
+                        <div class="swiper-slide h-auto flex flex-col"><div class="bg-white rounded-lg shadow-md w-full aspect-square mx-auto flex items-center justify-center p-3"><img src="https://placehold.co/100x100/FFFFFF/16a34a?text=ASR" alt="Ikon kontrol traksi ASR" class="max-w-full max-h-full object-contain"></div><p class="font-semibold text-xs mt-3 flex-grow">Kontrol Traksi ASR</p></div>
+                        <div class="swiper-slide h-auto flex flex-col"><div class="bg-white rounded-lg shadow-md w-full aspect-square mx-auto flex items-center justify-center p-3"><img src="https://placehold.co/100x100/FFFFFF/16a34a?text=Velg" alt="Ikon velg aluminium" class="max-w-full max-h-full object-contain"></div><p class="font-semibold text-xs mt-3 flex-grow">Velg Aluminium 12"</p></div>
+                        <div class="swiper-slide h-auto flex flex-col"><div class="bg-white rounded-lg shadow-md w-full aspect-square mx-auto flex items-center justify-center p-3"><img src="https://placehold.co/100x100/FFFFFF/16a34a?text=USB" alt="Ikon port USB" class="max-w-full max-h-full object-contain"></div><p class="font-semibold text-xs mt-3 flex-grow">Port Pengisian USB</p></div>
+                        <div class="swiper-slide h-auto flex flex-col"><div class="bg-white rounded-lg shadow-md w-full aspect-square mx-auto flex items-center justify-center p-3"><img src="https://placehold.co/100x100/FFFFFF/16a34a?text=Suspensi" alt="Ikon suspensi" class="max-w-full max-h-full object-contain"></div><p class="font-semibold text-xs mt-3 flex-grow">Suspensi Canggih</p></div>
+                        <div class="swiper-slide h-auto flex flex-col"><div class="bg-white rounded-lg shadow-md w-full aspect-square mx-auto flex items-center justify-center p-3"><img src="https://placehold.co/100x100/FFFFFF/16a34a?text=Bodi" alt="Ikon rangka monokok" class="max-w-full max-h-full object-contain"></div><p class="font-semibold text-xs mt-3 flex-grow">Desain Bodi Monokok</p></div>
                     </div>
                     <div class="swiper-button-next"></div>
                     <div class="swiper-button-prev"></div>
@@ -211,9 +179,9 @@
             <div class="flex flex-col sm:flex-row justify-between items-center text-gray-500 gap-4">
                 <p class="text-xs text-center sm:text-left">&copy; 2024 CJ Motor. Hak Cipta Dilindungi.</p>
                 <div class="flex items-center gap-4">
-                    <a href="#" class="hover:text-green-600 transition-colors"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.28C8.28,9.09 5.11,7.38 2.9,4.79C2.53,5.42 2.33,6.16 2.33,6.94C2.33,8.43 3.11,9.75 4.26,10.54C3.54,10.51 2.88,10.31 2.3,10V10.03C2.3,12.07 3.73,13.79 5.7,14.22C5.35,14.31 4.98,14.36 4.6,14.36C4.32,14.36 4.05,14.33 3.78,14.28C4.31,15.93 5.86,17.11 7.72,17.14C6.3,18.23 4.54,18.89 2.63,18.89C2.28,18.89 1.93,18.87 1.58,18.82C3.44,20.07 5.7,20.83 8.1,20.83C16,20.83 20.24,14.21 20.24,8.84C20.24,8.63 20.24,8.42 20.23,8.21C21.08,7.6 21.84,6.87 22.46,6Z" /></svg></a>
-                    <a href="#" class="hover:text-green-600 transition-colors"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 9,21.5C9.08,21.5 9.12,21.46 9.12,21.38V19.34C8.5,19.46 8.23,19.16 8.1,18.94C7.88,18.5 7.3,18.06 7.05,17.94C6.5,17.58 6.09,17.22 6.5,17.2C6.91,17.18 7.3,17.54 7.5,17.82C8,18.67 8.94,18.42 9.22,18.3C9.27,17.97 9.42,17.72 9.59,17.56C7.14,17.28 4.58,16.3 4.58,12.91C4.58,11.84 4.94,10.95 5.58,10.26C5.5,10.05 5.22,9.11 5.66,8.15C5.66,8.15 6.58,7.86 8.1,8.83C8.97,8.61 9.96,8.5 10.96,8.5C11.96,8.5 12.95,8.61 13.82,8.83C15.34,7.86 16.26,8.15 16.26,8.15C16.7,9.11 16.42,10.05 16.34,10.26C16.98,10.95 17.34,11.84 17.34,12.91C17.34,16.31 14.78,17.28 12.32,17.55C12.56,17.76 12.78,18.15 12.78,18.66V21.38C12.78,21.46 12.82,21.5 12.9,21.5C17.13,20.17 20,16.42 20,12A10,10 0 0,0 12,2Z" /></svg></a>
-                    <a href="#" class="hover:text-green-600 transition-colors"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z" /></svg></a>
+                    <a href="#" class="hover:text-green-600 transition-colors" aria-label="Twitter"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.28C8.28,9.09 5.11,7.38 2.9,4.79C2.53,5.42 2.33,6.16 2.33,6.94C2.33,8.43 3.11,9.75 4.26,10.54C3.54,10.51 2.88,10.31 2.3,10V10.03C2.3,12.07 3.73,13.79 5.7,14.22C5.35,14.31 4.98,14.36 4.6,14.36C4.32,14.36 4.05,14.33 3.78,14.28C4.31,15.93 5.86,17.11 7.72,17.14C6.3,18.23 4.54,18.89 2.63,18.89C2.28,18.89 1.93,18.87 1.58,18.82C3.44,20.07 5.7,20.83 8.1,20.83C16,20.83 20.24,14.21 20.24,8.84C20.24,8.63 20.24,8.42 20.23,8.21C21.08,7.6 21.84,6.87 22.46,6Z" /></svg></a>
+                    <a href="#" class="hover:text-green-600 transition-colors" aria-label="GitHub"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 9,21.5C9.08,21.5 9.12,21.46 9.12,21.38V19.34C8.5,19.46 8.23,19.16 8.1,18.94C7.88,18.5 7.3,18.06 7.05,17.94C6.5,17.58 6.09,17.22 6.5,17.2C6.91,17.18 7.3,17.54 7.5,17.82C8,18.67 8.94,18.42 9.22,18.3C9.27,17.97 9.42,17.72 9.59,17.56C7.14,17.28 4.58,16.3 4.58,12.91C4.58,11.84 4.94,10.95 5.58,10.26C5.5,10.05 5.22,9.11 5.66,8.15C5.66,8.15 6.58,7.86 8.1,8.83C8.97,8.61 9.96,8.5 10.96,8.5C11.96,8.5 12.95,8.61 13.82,8.83C15.34,7.86 16.26,8.15 16.26,8.15C16.7,9.11 16.42,10.05 16.34,10.26C16.98,10.95 17.34,11.84 17.34,12.91C17.34,16.31 14.78,17.28 12.32,17.55C12.56,17.76 12.78,18.15 12.78,18.66V21.38C12.78,21.46 12.82,21.5 12.9,21.5C17.13,20.17 20,16.42 20,12A10,10 0 0,0 12,2Z" /></svg></a>
+                    <a href="#" class="hover:text-green-600 transition-colors" aria-label="Instagram"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z" /></svg></a>
                 </div>
             </div>
         </footer>
@@ -222,12 +190,7 @@
     
     <!-- Panel Menu Mobile -->
     <div id="mobile-menu-panel" class="hidden md:hidden fixed top-0 left-0 w-full h-full bg-white z-50 p-6">
-        <div class="flex justify-between items-center mb-8">
-            <span class="text-lg font-bold text-gray-800">Menu</span>
-            <button id="close-mobile-menu-button" class="p-2">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-            </button>
-        </div>
+        <div class="flex justify-between items-center mb-8"><span class="text-lg font-bold text-gray-800">Menu</span><button id="close-mobile-menu-button" class="p-2"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button></div>
         <nav class="flex flex-col space-y-4">
             <a href="website_template_sederhana.html" class="text-lg text-gray-700 hover:text-green-600">Beranda</a>
             <a href="#" class="text-lg text-gray-700 hover:text-green-600">Produk</a>
@@ -244,27 +207,14 @@
             // Logika Galeri Thumbnail
             const mainImage = document.getElementById('main-product-image');
             const thumbnails = document.querySelectorAll('.product-thumbnail');
-            thumbnails.forEach(thumbnail => {
-                thumbnail.addEventListener('click', function() {
-                    mainImage.src = this.src;
-                    thumbnails.forEach(t => t.classList.remove('thumbnail-active'));
-                    this.classList.add('thumbnail-active');
-                });
-            });
+            thumbnails.forEach(thumbnail => { thumbnail.addEventListener('click', function() { mainImage.src = this.src; thumbnails.forEach(t => t.classList.remove('thumbnail-active')); this.classList.add('thumbnail-active'); }); });
 
             // Logika Menu Dropdown Produk
             const productMenuButton = document.getElementById('product-menu-button');
             const productMenuDropdown = document.getElementById('product-menu-dropdown');
             if (productMenuButton && productMenuDropdown) {
-                productMenuButton.addEventListener('click', (event) => {
-                    event.stopPropagation();
-                    productMenuDropdown.classList.toggle('hidden');
-                });
-                window.addEventListener('click', (event) => {
-                    if (!productMenuButton.contains(event.target) && !productMenuDropdown.contains(event.target) && !productMenuDropdown.classList.contains('hidden')) {
-                        productMenuDropdown.classList.add('hidden');
-                    }
-                });
+                productMenuButton.addEventListener('click', (event) => { event.stopPropagation(); productMenuDropdown.classList.toggle('hidden'); });
+                window.addEventListener('click', (event) => { if (!productMenuButton.contains(event.target) && !productMenuDropdown.contains(event.target) && !productMenuDropdown.classList.contains('hidden')) { productMenuDropdown.classList.add('hidden'); } });
             }
 
             // Logika Menu Mobile
@@ -278,22 +228,17 @@
 
             // Logika Opsi Warna
             const colorOptions = document.querySelectorAll('.color-option');
-            const thumb1 = document.getElementById('thumb-1'), thumb2 = document.getElementById('thumb-2'), thumb3 = document.getElementById('thumb-3'), thumb4 = document.getElementById('thumb-4');
+            const [thumb1, thumb2, thumb3, thumb4] = [document.getElementById('thumb-1'), document.getElementById('thumb-2'), document.getElementById('thumb-3'), document.getElementById('thumb-4')];
             colorOptions.forEach(option => {
                 option.addEventListener('click', function() {
-                    colorOptions.forEach(o => {
-                        o.classList.remove('border-green-600', 'bg-green-50');
-                        o.classList.add('border-transparent');
-                    });
+                    colorOptions.forEach(o => { o.classList.remove('border-green-600', 'bg-green-50'); o.classList.add('border-transparent'); });
                     this.classList.add('border-green-600', 'bg-green-50');
                     this.classList.remove('border-transparent');
-
                     mainImage.src = this.dataset.mainImage;
                     if(thumb1) thumb1.src = this.dataset.thumb1;
                     if(thumb2) thumb2.src = this.dataset.thumb2;
                     if(thumb3) thumb3.src = this.dataset.thumb3;
                     if(thumb4) thumb4.src = this.dataset.thumb4;
-
                     thumbnails.forEach(t => t.classList.remove('thumbnail-active'));
                     if (thumb1) thumb1.classList.add('thumbnail-active');
                 });
@@ -303,7 +248,7 @@
             var featuresSwiper = new Swiper('.features-swiper', {
                 loop: true,
                 spaceBetween: 16,
-                slidesPerView: 2.5, // Menampilkan 2 slide penuh dan sebagian dari slide ke-3
+                slidesPerView: 2.2, // Menampilkan sedikit slide berikutnya
                 navigation: {
                     nextEl: '.features-swiper .swiper-button-next',
                     prevEl: '.features-swiper .swiper-button-prev',
@@ -319,4 +264,3 @@
 
 </body>
 </html>
-
