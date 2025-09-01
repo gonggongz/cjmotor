@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detail Produk - Vespa 946 Dragon - CJ Motor</title>
+    <title>Detail Produk - Vespa 946 Snake - CJ Motor</title>
     
     <!-- Memuat Tailwind CSS untuk styling -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -45,14 +45,14 @@
 
         <!-- Header / Bagian Atas -->
         <header class="sticky top-0 z-40 flex flex-col items-center space-y-4 bg-white text-gray-800 py-4 shadow-md -mx-4 sm:-mx-6 px-4 sm:px-6 relative">
-            <a href="website_template_sederhana.html" class="flex items-center space-x-2">
-                <img src="https://i.postimg.cc/mhNZ7WrD/Asset-2.png" 
+            <a href="index.html" class="flex items-center space-x-2">
+                <img src="Asset/Main/Asset 1.png" 
                      alt="CJ Motor Logo" 
                      class="h-7 w-auto">
                 <span class="text-xs font-bold text-gray-800">CJ Motor</span>
             </a>
             <nav class="flex flex-wrap justify-center items-center gap-y-2 gap-x-4 md:gap-x-8 text-sm">
-                <a href="website_template_sederhana.html" class="hover:text-green-600 transition-colors duration-300">Beranda</a>
+                <a href="index.html" class="hover:text-green-600 transition-colors duration-300">Beranda</a>
                 <!-- Menu Dropdown Produk -->
                 <div id="product-menu">
                     <div id="product-menu-button" class="flex items-center gap-1 hover:text-green-600 transition-colors duration-300 cursor-pointer">
@@ -80,7 +80,7 @@
                     <div class="space-y-1">
                         <h3 class="text-xs uppercase font-bold text-gray-500 mb-2 px-2">150 cc</h3>
                         <a href="halaman-produk.html" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
-                            <img src="Asset/Product/946 Snake/946-snake-01 (2).png" alt="Vespa 946 Dragon" class="w-12 h-12 object-contain">
+                            <img src="Asset/Product/946 Snake/946-snake-01 (2).png" alt="Vespa 946 Snake" class="w-12 h-12 object-contain">
                             <span class="text-sm text-gray-700">Vespa 946 Snake</span>
                         </a>
                         <a href="#" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
@@ -139,7 +139,7 @@
                                     data-thumb4="Asset/Product/946 Snake/946-snake-01 (3).png"
                                     data-thumb5="Asset/Product/946 Snake/946-snake-01 (5).png">
                                 <div class="w-6 h-6 rounded-full border border-gray-400 flex-shrink-0" style="background-color: #b0bcd4;"></div>
-                                <span class="text-sm font-medium text-gray-800">Steel Blue</span>
+                                <span class="text-sm font-medium text-gray-800">Iridescent Blue</span>
                             </button>
                         </div>
                     </div>
@@ -147,9 +147,9 @@
 
                 <!-- Informasi Produk -->
                 <div class="bg-white p-8 rounded-lg shadow-lg">
-                    <h1 class="text-4xl font-bold mb-3 text-green-700">Vespa 946 Dragon</h1>
+                    <h1 class="text-4xl font-bold mb-3 text-green-700">Vespa 946 Snake</h1>
                     <p class="text-gray-700 mb-6">
-                        Merayakan Tahun Naga, Vespa 946 Dragon adalah mahakarya edisi terbatas yang memadukan keanggunan Italia dengan kekuatan mitologi Timur. Sebuah koleksi eksklusif bagi para pengendara sejati.
+                        In the year of the Snake, the Vespa 946 Snake is born. This numbered limited edition blends masterful craftsmanship with Italian design. Inspired by the lunar calendar, it embodies the essence of this majestic creature, creating a collectible scooter that exudes enigmatic beauty.
                     </p>
                                 
                     <!-- Blok Harga -->
@@ -269,6 +269,7 @@
             const thumb2 = document.getElementById('thumb-2');
             const thumb3 = document.getElementById('thumb-3');
             const thumb4 = document.getElementById('thumb-4');
+            const thumb5 = document.getElementById('thumb-5');
 
             colorOptions.forEach(option => {
                 option.addEventListener('click', function() {
@@ -282,6 +283,7 @@
                     if(thumb2) thumb2.src = this.dataset.thumb2;
                     if(thumb3) thumb3.src = this.dataset.thumb3;
                     if(thumb4) thumb4.src = this.dataset.thumb4;
+                    if(thumb4) thumb5.src = this.dataset.thumb5;
 
                     // Reset active thumbnail to the first one after color change
                     thumbnails.forEach(t => t.classList.remove('thumbnail-active'));
