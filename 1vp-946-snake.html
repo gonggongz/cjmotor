@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detail Produk - Vespa 946 Snake - CJ Motor</title>
+    <title>Detail Produk - Vespa 946 Dragon - CJ Motor</title>
     
     <!-- Memuat Tailwind CSS untuk styling -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -44,15 +44,15 @@
     <div id="main-content" class="container mx-auto px-4 sm:px-6 pt-4 pb-8">
 
         <!-- Header / Bagian Atas -->
-        <header class="sticky top-0 z-40 flex flex-col items-center space-y-4 bg-white text-gray-800 py-4 shadow-md -mx-4 sm:-mx-6 px-4 sm:px-6 relative">
-            <a href="index.html" class="flex items-center space-x-2">
-                <img src="Asset/Main/Asset 1.png" 
+        <header class="sticky top-0 z-40 flex items-center justify-between md:justify-center md:flex-col md:space-y-4 bg-white text-gray-800 py-4 shadow-md -mx-4 sm:-mx-6 px-4 sm:px-6 h-20 md:h-auto relative">
+            <a href="website_template_sederhana.html" class="flex items-center space-x-2">
+                <img src="https://i.postimg.cc/mhNZ7WrD/Asset-2.png" 
                      alt="CJ Motor Logo" 
                      class="h-7 w-auto">
                 <span class="text-xs font-bold text-gray-800">CJ Motor</span>
             </a>
-            <nav class="flex flex-wrap justify-center items-center gap-y-2 gap-x-4 md:gap-x-8 text-sm">
-                <a href="index.html" class="hover:text-green-600 transition-colors duration-300">Beranda</a>
+            <nav class="hidden md:flex flex-wrap justify-center items-center gap-y-2 gap-x-4 md:gap-x-8 text-sm">
+                <a href="website_template_sederhana.html" class="hover:text-green-600 transition-colors duration-300">Beranda</a>
                 <!-- Menu Dropdown Produk -->
                 <div id="product-menu">
                     <div id="product-menu-button" class="flex items-center gap-1 hover:text-green-600 transition-colors duration-300 cursor-pointer">
@@ -65,14 +65,18 @@
                 <a href="website_template_sederhana.html#layanan-kami" class="hover:text-green-600 transition-colors duration-300">Layanan</a>
                 <a href="website_template_sederhana.html#lokasi-kami" class="hover:text-green-600 transition-colors duration-300">Lokasi</a>
             </nav>
+            <!-- Tombol Menu Mobile -->
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-400">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
             <!-- Panel Mega Menu -->
-            <div id="product-menu-dropdown" class="absolute top-full mt-2 left-1/2 -translate-x-1/2 bg-white rounded-md shadow-lg z-50 hidden p-4 w-[90vw] max-w-[700px] max-h-[60vh] overflow-y-auto">
+            <div id="product-menu-dropdown" class="absolute top-full left-1/2 -translate-x-1/2 bg-white rounded-md shadow-lg z-50 hidden p-4 w-[90vw] max-w-[700px]">
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                     <!-- Kategori 125cc -->
                     <div class="space-y-1">
                         <h3 class="text-xs uppercase font-bold text-gray-500 mb-2 px-2">125 cc</h3>
                         <a href="#" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
-                            <img src="Asset/Product/Lx 125/grey-materia-03.png" alt="Vespa LX 125" class="w-12 h-12 object-contain">
+                            <img src="https://placehold.co/100x100/F9FAFB/374151?text=Vespa+LX" alt="Vespa LX 125" class="w-12 h-12 object-contain">
                             <span class="text-sm text-gray-700">Vespa LX 125</span>
                         </a>
                     </div>
@@ -80,31 +84,27 @@
                     <div class="space-y-1">
                         <h3 class="text-xs uppercase font-bold text-gray-500 mb-2 px-2">150 cc</h3>
                         <a href="halaman-produk.html" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
-                            <img src="Asset/Product/946 Snake/946-snake-01 (2).png" alt="Vespa 946 Snake" class="w-12 h-12 object-contain">
-                            <span class="text-sm text-gray-700">Vespa 946 Snake</span>
+                            <img src="https://i.postimg.cc/FRFKxNPw/1-946-snake-01-2.png" alt="Vespa 946 Dragon" class="w-12 h-12 object-contain">
+                            <span class="text-sm text-gray-700">Vespa 946 Dragon</span>
                         </a>
                         <a href="#" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
-                            <img src="Asset/Product/GTS 150 Classic/gtsc-beige-sabbia-01 (3).png" alt="Vespa GTS" class="w-12 h-12 object-contain">
-                            <span class="text-sm text-gray-700">Vespa GTS</span>
-                        </a>
-                        <a href="#" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
-                            <img src="Asset/Product/Sprint Officina/sprint-blu-officina-01 (3).png" alt="Vespa Sprint" class="w-12 h-12 object-contain">
+                            <img src="https://i.postimg.cc/0Nsjbp7k/3-sprint_blu_officina_01_3.png" alt="Vespa Sprint" class="w-12 h-12 object-contain">
                             <span class="text-sm text-gray-700">Vespa Sprint</span>
                         </a>
                         <a href="#" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
-                            <img src="Asset/Product/Primavera 150/white-innocente-04.png" alt="Vespa Primavera" class="w-12 h-12 object-contain">
+                            <img src="https://placehold.co/100x100/F9FAFB/374151?text=Sprint+S" alt="Vespa Sprint S" class="w-12 h-12 object-contain">
+                            <span class="text-sm text-gray-700">Vespa Sprint S</span>
+                        </a>
+                        <a href="#" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                            <img src="https://placehold.co/100x100/F9FAFB/374151?text=Primavera" alt="Vespa Primavera" class="w-12 h-12 object-contain">
                             <span class="text-sm text-gray-700">Primavera</span>
                         </a>
                     </div>
                     <!-- Kategori 300cc -->
                     <div class="space-y-1">
                         <h3 class="text-xs uppercase font-bold text-gray-500 mb-2 px-2">300 cc</h3>
-                        <a href="#" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
-                            <img src="Asset/Product/GTS Super Tech/gtstgrey-quarzo-01 (3).png" alt="Vespa GTS Super Tech" class="w-12 h-12 object-contain">
-                            <span class="text-sm text-gray-700">Vespa GTS Super Tech</span>
-                        </a>
-                        <a href="#" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
-                            <img src="Asset/Product/GTV Officina/gtv-blu-officina-01 (3).png" alt="Vespa GTV" class="w-12 h-12 object-contain">
+                        <a href="halaman-produk-2.html" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                            <img src="https://i.postimg.cc/tTr4SwwJ/2-gtv_blu_officina_01_3.png" alt="Vespa GTV" class="w-12 h-12 object-contain">
                             <span class="text-sm text-gray-700">Vespa GTV</span>
                         </a>
                     </div>
@@ -117,29 +117,29 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
                 
                 <!-- Galeri Gambar Produk -->
-                <div class="bg-white p-4 rounded-lg shadow-lg sticky top-32">
-                    <img id="main-product-image" src="Asset/Product/946 Snake/946-snake-01 (2).png" alt="Vespa 946 Snake" class="w-full h-auto object-contain rounded-md transition-all duration-300">
+                <div class="bg-white p-4 rounded-lg shadow-lg sticky top-24 md:top-32">
+                    <img id="main-product-image" src="https://i.postimg.cc/FRFKxNPw/1-946-snake-01-2.png" alt="Vespa 946 Dragon" class="w-full h-auto object-contain rounded-md transition-all duration-300">
                     <!-- Galeri Thumbnail -->
-                    <div class="mt-5 grid grid-cols-5 gap-5">
-                        <img id="thumb-1" src="Asset/Product/946 Snake/946-snake-01 (1).png" alt="Thumbnail 1" class="product-thumbnail w-full h-24 object-contain cursor-pointer rounded-md border-2 border-transparent hover:border-green-500 transition-colors duration-300 thumbnail-active">
-                        <img id="thumb-2" src="Asset/Product/946 Snake/946-snake-01 (4).png" alt="Thumbnail 2" class="product-thumbnail w-full h-24 object-contain cursor-pointer rounded-md border-2 border-transparent hover:border-green-500 transition-colors duration-300">
-                        <img id="thumb-3" src="Asset/Product/946 Snake/946-snake-01 (2).png" alt="Thumbnail 3" class="product-thumbnail w-full h-24 object-contain cursor-pointer rounded-md border-2 border-transparent hover:border-green-500 transition-colors duration-300">
-                        <img id="thumb-4" src="Asset/Product/946 Snake/946-snake-01 (3).png" alt="Thumbnail 4" class="product-thumbnail w-full h-24 object-contain cursor-pointer rounded-md border-2 border-transparent hover:border-green-500 transition-colors duration-300">
-                        <img id="thumb-5" src="Asset/Product/946 Snake/946-snake-01 (5).png" alt="Thumbnail 5" class="product-thumbnail w-full h-24 object-contain cursor-pointer rounded-md border-2 border-transparent hover:border-green-500 transition-colors duration-300">
+                    <div class="mt-4 grid grid-cols-4 gap-4">
+                        <img id="thumb-1" src="https://i.postimg.cc/FRFKxNPw/1-946-snake-01-2.png" alt="Thumbnail 1" class="product-thumbnail w-full h-24 object-contain cursor-pointer rounded-md border-2 border-transparent hover:border-green-500 transition-colors duration-300 thumbnail-active">
+                        <img id="thumb-2" src="https://placehold.co/300x200/F9FAFB/374151?text=Tampak+Samping" alt="Thumbnail 2" class="product-thumbnail w-full h-24 object-contain cursor-pointer rounded-md border-2 border-transparent hover:border-green-500 transition-colors duration-300">
+                        <img id="thumb-3" src="https://placehold.co/300x200/F9FAFB/374151?text=Detail+Lampu" alt="Thumbnail 3" class="product-thumbnail w-full h-24 object-contain cursor-pointer rounded-md border-2 border-transparent hover:border-green-500 transition-colors duration-300">
+                        <img id="thumb-4" src="https://placehold.co/300x200/F9FAFB/374151?text=Detail+Jok" alt="Thumbnail 4" class="product-thumbnail w-full h-24 object-contain cursor-pointer rounded-md border-2 border-transparent hover:border-green-500 transition-colors duration-300">
                     </div>
                       <!-- Opsi Warna -->
                     <div class="mt-6 border-t border-gray-200 pt-4">
                         <h4 class="text-sm font-semibold text-gray-700 mb-3">Pilihan Warna:</h4>
-                        <div class="flex items-center space-x-3">
+                        <div class="space-y-2"> 
+                    
+                             <!-- Opsi 3: Steel Blue -->
                             <button class="color-option w-full flex items-center gap-3 p-2 rounded-lg border-2 border-transparent transition-colors duration-200"
-                                    data-main-image="Asset/Product/946 Snake/946-snake-01 (2).png"
-                                    data-thumb1="Asset/Product/946 Snake/946-snake-01 (1).png"
-                                    data-thumb2="Asset/Product/946 Snake/946-snake-01 (4).png"
-                                    data-thumb3="Asset/Product/946 Snake/946-snake-01 (2).png"
-                                    data-thumb4="Asset/Product/946 Snake/946-snake-01 (3).png"
-                                    data-thumb5="Asset/Product/946 Snake/946-snake-01 (5).png">
+                                    data-main-image="https://placehold.co/800x600/b0bcd4/FFFFFF?text=946+Dragon+Steel+Blue"
+                                    data-thumb1="https://placehold.co/300x200/b0bcd4/FFFFFF?text=Blue+Utama"
+                                    data-thumb2="https://placehold.co/300x200/b0bcd4/FFFFFF?text=Blue+Samping"
+                                    data-thumb3="https://placehold.co/300x200/b0bcd4/FFFFFF?text=Blue+Lampu"
+                                    data-thumb4="https://placehold.co/300x200/b0bcd4/FFFFFF?text=Blue+Jok">
                                 <div class="w-6 h-6 rounded-full border border-gray-400 flex-shrink-0" style="background-color: #b0bcd4;"></div>
-                                <span class="text-sm font-medium text-gray-800">Iridescent Blue</span>
+                                <span class="text-sm font-medium text-gray-800">Steel Blue</span>
                             </button>
                         </div>
                     </div>
@@ -147,11 +147,18 @@
 
                 <!-- Informasi Produk -->
                 <div class="bg-white p-8 rounded-lg shadow-lg">
-                    <h1 class="text-4xl font-bold mb-3 text-green-700">Vespa 946 Snake</h1>
+                    <h1 class="text-4xl font-bold mb-3 text-green-700">Vespa 946 Dragon</h1>
                     <p class="text-gray-700 mb-6">
-                        In the year of the Snake, the Vespa 946 Snake is born. This numbered limited edition blends masterful craftsmanship with Italian design. Inspired by the lunar calendar, it embodies the essence of this majestic creature, creating a collectible scooter that exudes enigmatic beauty.
+                        Merayakan Tahun Naga, Vespa 946 Dragon adalah mahakarya edisi terbatas yang memadukan keanggunan Italia dengan kekuatan mitologi Timur. Sebuah koleksi eksklusif bagi para pengendara sejati.
                     </p>
-                                
+
+                    <!-- Tombol Lihat Edisi Spesial -->
+                    <div class="mb-6">
+                        <a href="halaman-versi-produk.html" class="w-full text-center bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-3 px-6 rounded-lg transition-colors duration-300 inline-block">
+                            Lihat Edisi Spesial & Aksesoris &rarr;
+                        </a>
+                    </div>
+                    
                     <!-- Blok Harga -->
                     <div class="bg-gray-100 rounded-lg p-6 mb-6">
                         <div class="flex justify-between items-center mb-4">
@@ -179,129 +186,87 @@
             </div>
 
             <!-- Bagian Fitur Unggulan -->
-            
-    <div class="row">
-        <div class="col">
-            <h2 class="font-lato-bold text-center text-uppercase my-2 h1">Features</h2>
-            <div class="d-flex">
-
-                <!-- Tombol Navigasi Kiri -->
-                <a href="#features" class="d-flex px-2 text-white text-decoration-none bg-dark align-items-center vespa-navigator slick-arrow slick-hidden" id="feature-left" style="" aria-disabled="true" tabindex="-1">
-                    <i class="fa fa-angle-left"></i>
-                </a>
-
-                <!-- Kontainer Slider -->
-                <div class="flex-fill" style="width: calc(100% - (1.8rem * 2));">
-                    <div class="row feature-list mx-0 px-0 slick-initialized slick-slider" data-ride="carousel">
-                        <div class="slick-list draggable">
-                            <div class="slick-track" style="opacity: 1; width: 1071px; transform: translate3d(0px, 0px, 0px);">
-
-                                <!-- Slide 1: Saddle -->
-                                <div class="slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" style="width: 153px;">
-                                    <div>
-                                        <div class="col mx-0 pb-4" style="width: 100%; display: inline-block;">
-                                            <img alt="feature-2" class="img-fluid mb-3 w-100" src="/assets/img/vespa-946-snake/Features-Snake-Leather-Saddle.png" style="opacity: 1;">
-                                            <div class="mx-1">
-                                                <p class="text-center">The leather-effect saddle, embellished with a snake scale texture,</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Slide 2: ABS System -->
-                                <div class="slick-slide slick-active" data-slick-index="1" aria-hidden="false" style="width: 153px;">
-                                    <div>
-                                        <div class="col mx-0 pb-4" style="width: 100%; display: inline-block;">
-                                            <img alt="feature-3" class="img-fluid mb-3 w-100" src="/assets/img/vespa-946-snake/Features-Abs-system.png" style="opacity: 1;">
-                                            <div class="mx-1">
-                                                <ul>
-                                                    <li>220 mm Dual Disc Brake</li>
-                                                    <li>ABS Dual Channel</li>
-                                                    <li>Braking System</li>
-                                                    <li>ASR Traction Electronic</li>
-                                                    <li>Control System</li>
-                                                    <li>12" Wheels</li>
-                                                    <li>Aluminum Alloy Split Rims</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Slide 3: Fuel Cap Emblem -->
-                                <div class="slick-slide slick-active" data-slick-index="2" aria-hidden="false" style="width: 153px;">
-                                    <div>
-                                        <div class="col mx-0 pb-4" style="width: 100%; display: inline-block;">
-                                            <img alt="feature-4" class="img-fluid mb-3 w-100" src="/assets/img/vespa-946-snake/Features-Snake-3D-Emblem-on-Fuel-Cap.png" style="opacity: 1;">
-                                            <div class="mx-1">
-                                                <p class="text-center">The chromed snake emblem, a symbol of transformation and rebirth, is also imprinted on the fuel cap of the Vespa 946 Snake.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Slide 4: Fender Emblem -->
-                                <div class="slick-slide slick-active" data-slick-index="3" aria-hidden="false" style="width: 153px;">
-                                    <div>
-                                        <div class="col mx-0 pb-4" style="width: 100%; display: inline-block;">
-                                            <img alt="feature-5" class="img-fluid mb-3 w-100" src="/assets/img/vespa-946-snake/Features-Snake-3D-Emblem-on-Fender.png" style="opacity: 1;">
-                                            <div class="mx-1">
-                                                <p class="text-center">The front mudguard is adorned with a 3D chromed snake emblem, symbolizing sinuosity and elegance, designed to follow every curve beyond the horizon</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Slide 5: Engine -->
-                                <div class="slick-slide slick-active" data-slick-index="4" aria-hidden="false" style="width: 153px;">
-                                    <div>
-                                        <div class="col mx-0 pb-4" style="width: 100%; display: inline-block;">
-                                            <img alt="feature-6" class="img-fluid mb-3 w-100" src="/assets/img/vespa-946-snake/Features-Engine.png" style="opacity: 1;">
-                                            <div class="mx-1">
-                                                <p class="text-center">Echo-Sustainability and Fuel Efficiency</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Slide 6: Front Lamp -->
-                                <div class="slick-slide slick-active" data-slick-index="5" aria-hidden="false" style="width: 153px;">
-                                    <div>
-                                        <div class="col mx-0 pb-4" style="width: 100%; display: inline-block;">
-                                            <img alt="feature-7" class="img-fluid mb-3 w-100" src="/assets/img/vespa-946-snake/Features-LED-Front-Lamp.png" style="opacity: 1;">
-                                            <div class="mx-1">
-                                                <p class="text-center">LED Front Lamp</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Slide 7: Rear Lamp -->
-                                <div class="slick-slide slick-active" data-slick-index="6" aria-hidden="false" style="width: 153px;">
-                                    <div>
-                                        <div class="col mx-0 pb-4" style="width: 100%; display: inline-block;">
-                                            <img alt="feature-8" class="img-fluid mb-3 w-100" src="/assets/img/vespa-946-snake/Features-LED-Rear-Lamp.png" style="opacity: 1;">
-                                            <div class="mx-1">
-                                                <p class="text-center">LED Tail Light and Turn Indicator</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
+            <section class="mt-16">
+                <h2 class="text-3xl font-bold text-center mb-8">Fitur Unggulan</h2>
+                <div class="swiper-container features-swiper relative px-8">
+                    <div class="swiper-wrapper items-start">
+                        <!-- Fitur 1 -->
+                        <div class="swiper-slide text-center">
+                            <div class="bg-white rounded-lg shadow-md w-28 h-28 mx-auto flex items-center justify-center p-2">
+                                <img src="https://placehold.co/100x100/FFFFFF/16a34a?text=LED" alt="Fitur 1" class="max-w-full max-h-full object-contain">
                             </div>
+                            <p class="font-semibold text-xs mt-2">Lampu Full LED</p>
                         </div>
+                        <!-- Fitur 2 -->
+                        <div class="swiper-slide text-center">
+                             <div class="bg-white rounded-lg shadow-md w-28 h-28 mx-auto flex items-center justify-center p-2">
+                                <img src="https://placehold.co/100x100/FFFFFF/16a34a?text=Naga" alt="Fitur 2" class="max-w-full max-h-full object-contain">
+                            </div>
+                            <p class="font-semibold text-xs mt-2">Grafis Naga Eksklusif</p>
+                        </div>
+                        <!-- Fitur 3 -->
+                        <div class="swiper-slide text-center">
+                            <div class="bg-white rounded-lg shadow-md w-28 h-28 mx-auto flex items-center justify-center p-2">
+                                <img src="https://placehold.co/100x100/FFFFFF/16a34a?text=ABS" alt="Fitur 3" class="max-w-full max-h-full object-contain">
+                            </div>
+                             <p class="font-semibold text-xs mt-2">Sistem Rem ABS</p>
+                        </div>
+                         <!-- Fitur 4 -->
+                        <div class="swiper-slide text-center">
+                            <div class="bg-white rounded-lg shadow-md w-28 h-28 mx-auto flex items-center justify-center p-2">
+                                <img src="https://placehold.co/100x100/FFFFFF/16a34a?text=Digital" alt="Fitur 4" class="max-w-full max-h-full object-contain">
+                            </div>
+                             <p class="font-semibold text-xs mt-2">Panel Instrumen Digital</p>
+                        </div>
+                         <!-- Fitur 5 (Tambahan) -->
+                        <div class="swiper-slide text-center">
+                             <div class="bg-white rounded-lg shadow-md w-28 h-28 mx-auto flex items-center justify-center p-2">
+                                <img src="https://placehold.co/100x100/FFFFFF/16a34a?text=Kulit" alt="Fitur 5" class="max-w-full max-h-full object-contain">
+                            </div>
+                             <p class="font-semibold text-xs mt-2">Jok Kulit Asli</p>
+                        </div>
+                        <!-- Fitur 6 -->
+                        <div class="swiper-slide text-center">
+                            <div class="bg-white rounded-lg shadow-md w-28 h-28 mx-auto flex items-center justify-center p-2">
+                               <img src="https://placehold.co/100x100/FFFFFF/16a34a?text=ASR" alt="Fitur 6" class="max-w-full max-h-full object-contain">
+                           </div>
+                            <p class="font-semibold text-xs mt-2">Kontrol Traksi ASR</p>
+                       </div>
+                       <!-- Fitur 7 -->
+                       <div class="swiper-slide text-center">
+                           <div class="bg-white rounded-lg shadow-md w-28 h-28 mx-auto flex items-center justify-center p-2">
+                              <img src="https://placehold.co/100x100/FFFFFF/16a34a?text=Velg" alt="Fitur 7" class="max-w-full max-h-full object-contain">
+                          </div>
+                           <p class="font-semibold text-xs mt-2">Velg Aluminium 12"</p>
+                      </div>
+                      <!-- Fitur 8 -->
+                      <div class="swiper-slide text-center">
+                          <div class="bg-white rounded-lg shadow-md w-28 h-28 mx-auto flex items-center justify-center p-2">
+                             <img src="https://placehold.co/100x100/FFFFFF/16a34a?text=USB" alt="Fitur 8" class="max-w-full max-h-full object-contain">
+                         </div>
+                          <p class="font-semibold text-xs mt-2">Port Pengisian USB</p>
+                     </div>
+                     <!-- Fitur 9 -->
+                     <div class="swiper-slide text-center">
+                         <div class="bg-white rounded-lg shadow-md w-28 h-28 mx-auto flex items-center justify-center p-2">
+                            <img src="https://placehold.co/100x100/FFFFFF/16a34a?text=Suspensi" alt="Fitur 9" class="max-w-full max-h-full object-contain">
+                        </div>
+                         <p class="font-semibold text-xs mt-2">Suspensi Canggih</p>
                     </div>
+                    <!-- Fitur 10 -->
+                    <div class="swiper-slide text-center">
+                        <div class="bg-white rounded-lg shadow-md w-28 h-28 mx-auto flex items-center justify-center p-2">
+                           <img src="https://placehold.co/100x100/FFFFFF/16a34a?text=Bodi" alt="Fitur 10" class="max-w-full max-h-full object-contain">
+                       </div>
+                        <p class="font-semibold text-xs mt-2">Desain Bodi Monokok</p>
+                   </div>
+                    </div>
+                    <!-- Navigasi Slider Fitur -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
                 </div>
-
-                <!-- Tombol Navigasi Kanan -->
-                <a href="#features" class="d-flex px-2 text-white text-decoration-none bg-dark align-items-center vespa-navigator slick-arrow slick-hidden" id="feature-right" style="" aria-disabled="true" tabindex="-1">
-                    <i class="fa fa-angle-right"></i>
-                </a>
-
-            </div>
-        </div>
-    </div>
-</div>
+            </section>
+        </main>
 
         <!-- Footer / Bagian Bawah -->
         <footer class="flex justify-end text-gray-500 border-t border-gray-200 pt-6 mt-24">
@@ -309,6 +274,25 @@
         </footer>
 
     </div>
+    
+    <!-- Panel Menu Mobile -->
+    <div id="mobile-menu-panel" class="hidden md:hidden fixed top-0 left-0 w-full h-full bg-white z-50 p-6">
+        <div class="flex justify-between items-center mb-8">
+            <span class="text-lg font-bold text-gray-800">Menu</span>
+            <button id="close-mobile-menu-button" class="p-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+        <nav class="flex flex-col space-y-4">
+            <a href="website_template_sederhana.html" class="text-lg text-gray-700 hover:text-green-600">Beranda</a>
+            <a href="#" class="text-lg text-gray-700 hover:text-green-600">Produk</a>
+            <a href="#" class="text-lg text-gray-700 hover:text-green-600">Aksesoris</a>
+            <a href="website_template_sederhana.html#tentang-kami" class="text-lg text-gray-700 hover:text-green-600">Tentang</a>
+            <a href="website_template_sederhana.html#layanan-kami" class="text-lg text-gray-700 hover:text-green-600">Layanan</a>
+            <a href="website_template_sederhana.html#lokasi-kami" class="text-lg text-gray-700 hover:text-green-600">Lokasi</a>
+        </nav>
+    </div>
+
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
@@ -340,19 +324,42 @@
                 });
             }
 
+            // --- Logika Menu Mobile ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const closeMobileMenuButton = document.getElementById('close-mobile-menu-button');
+            const mobileMenuPanel = document.getElementById('mobile-menu-panel');
+
+            if (mobileMenuButton && mobileMenuPanel && closeMobileMenuButton) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenuPanel.classList.remove('hidden');
+                });
+
+                closeMobileMenuButton.addEventListener('click', function() {
+                    mobileMenuPanel.classList.add('hidden');
+                });
+            }
+
+
              // --- Logika Opsi Warna ---
             const colorOptions = document.querySelectorAll('.color-option');
             const thumb1 = document.getElementById('thumb-1');
             const thumb2 = document.getElementById('thumb-2');
             const thumb3 = document.getElementById('thumb-3');
             const thumb4 = document.getElementById('thumb-4');
-            const thumb5 = document.getElementById('thumb-5');
 
             colorOptions.forEach(option => {
                 option.addEventListener('click', function() {
-                    colorOptions.forEach(o => o.classList.remove('ring-2', 'ring-offset-2', 'ring-green-600'));
-                    this.classList.add('ring-2', 'ring-offset-2', 'ring-green-600');
+                    // Menghapus status aktif dari semua pilihan
+                    colorOptions.forEach(o => {
+                        o.classList.remove('border-green-600', 'bg-green-50');
+                        o.classList.add('border-transparent');
+                    });
+                    
+                    // Menambahkan status aktif pada pilihan yang diklik
+                    this.classList.add('border-green-600', 'bg-green-50');
+                    this.classList.remove('border-transparent');
 
+                    // Mengganti gambar utama dan thumbnail
                     const newMainImage = this.dataset.mainImage;
                     mainImage.src = newMainImage;
                     
@@ -360,9 +367,8 @@
                     if(thumb2) thumb2.src = this.dataset.thumb2;
                     if(thumb3) thumb3.src = this.dataset.thumb3;
                     if(thumb4) thumb4.src = this.dataset.thumb4;
-                    if(thumb4) thumb5.src = this.dataset.thumb5;
 
-                    // Reset active thumbnail to the first one after color change
+                    // Reset thumbnail aktif ke yang pertama setelah ganti warna
                     thumbnails.forEach(t => t.classList.remove('thumbnail-active'));
                     if (thumb1) thumb1.classList.add('thumbnail-active');
                 });
@@ -391,3 +397,7 @@
 
 </body>
 </html>
+
+
+
+
