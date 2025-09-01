@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detail Produk - Vespa GTV Officina - CJ Motor</title>
+    <title>Detail Produk - Vespa 946 Snake - CJ Motor</title>
     
     <!-- Memuat Tailwind CSS untuk styling -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -13,6 +13,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
     
+    <!-- Memuat Swiper CSS untuk slider -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    
     <style>
         body {
             font-family: 'Lato', sans-serif;
@@ -20,90 +23,208 @@
         .thumbnail-active {
             border-color: #16a34a; /* Warna green-600 */
         }
+        /* Style for Swiper navigation buttons */
+        .features-swiper .swiper-button-next,
+        .features-swiper .swiper-button-prev {
+            color: #4b5563; /* gray-600 */
+            top: 50%;
+            transform: translateY(-50%);
+            width: 2rem;
+            height: 2rem;
+        }
+        .features-swiper .swiper-button-next:after,
+        .features-swiper .swiper-button-prev:after {
+            font-size: .875rem;
+        }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800 antialiased">
 
     <!-- Kontainer Utama -->
-    <div id="main-content" class="container mx-auto px-6 pt-4 pb-8">
+    <div id="main-content" class="container mx-auto px-4 sm:px-6 pt-4 pb-8">
 
         <!-- Header / Bagian Atas -->
-        <header class="sticky top-0 z-40 flex flex-col items-center space-y-2 bg-white text-gray-800 py-4 shadow-md -mx-6 px-6">
+        <header class="sticky top-0 z-40 flex flex-col items-center space-y-4 bg-white text-gray-800 py-4 shadow-md -mx-4 sm:-mx-6 px-4 sm:px-6 relative">
             <a href="index.html" class="flex items-center space-x-2">
                 <img src="Asset/Main/Asset 1.png" 
                      alt="CJ Motor Logo" 
                      class="h-7 w-auto">
                 <span class="text-xs font-bold text-gray-800">CJ Motor</span>
             </a>
-            <nav class="flex flex-wrap justify-center items-center gap-x-8">
+            <nav class="flex flex-wrap justify-center items-center gap-y-2 gap-x-4 md:gap-x-8 text-sm">
                 <a href="index.html" class="hover:text-green-600 transition-colors duration-300">Beranda</a>
-                <!-- Menu Dropdown Produk (EDIT DISINI)-->
-                <div class="relative" id="product-menu">
+                <!-- Menu Dropdown Produk -->
+                <div id="product-menu">
                     <div id="product-menu-button" class="flex items-center gap-1 hover:text-green-600 transition-colors duration-300 cursor-pointer">
                         <span>Produk</span>
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </div>
-                    <!-- Panel Mega Menu -->
-                    <div id="product-menu-dropdown" class="absolute left-1/2 -translate-x-1/2 mt-2 bg-white rounded-md shadow-lg z-50 hidden p-4" style="width: 450px;">
-                        <div class="grid grid-cols-2 gap-4">
-                            <a href="1vp-946-snake.html" class="block text-center p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
-                                <img src="https://i.postimg.cc/FRFKxNPw/1-946-snake-01-2.png" alt="Vespa 946 Snake" class="w-full h-24 object-contain mb-2">
-                                <span class="text-sm text-gray-700">Vespa 946 Snake</span>
-                            </a>
-                             <a href="2vp-gtv-officina.html" class="block text-center p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
-                                <img src="Asset/Product/GTV Officina/gtv-blu-officina-01 (3).png" alt="Vespa GTV Officina" class="w-full h-24 object-contain mb-2">
-                                <span class="text-sm text-gray-700">Vespa GTV Officina</span>
-                            </a>
-                            <a href="1vp-946-snake.html" class="block text-center p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
-                                <img src="https://i.postimg.cc/0Nsjbp7k/3-sprint_blu_officina_01_3.png" alt="Vespa Sprint" class="w-full h-24 object-contain mb-2">
-                                <span class="text-sm text-gray-700">Vespa Sprint</span>
-                            </a>
-                        </div>
-                    </div>
                 </div>
                 <a href="#" class="hover:text-green-600 transition-colors duration-300">Aksesoris</a>
-                <a href="index.html#tentang-kami" class="hover:text-green-600 transition-colors duration-300">Tentang</a>
-                <a href="index.html#layanan-kami" class="hover:text-green-600 transition-colors duration-300">Layanan</a>
-                <a href="index.html#lokasi-kami" class="hover:text-green-600 transition-colors duration-300">Lokasi</a>
+                <a href="website_template_sederhana.html#tentang-kami" class="hover:text-green-600 transition-colors duration-300">Tentang</a>
+                <a href="website_template_sederhana.html#layanan-kami" class="hover:text-green-600 transition-colors duration-300">Layanan</a>
+                <a href="website_template_sederhana.html#lokasi-kami" class="hover:text-green-600 transition-colors duration-300">Lokasi</a>
             </nav>
+            <!-- Panel Mega Menu -->
+            <div id="product-menu-dropdown" class="absolute top-full mt-2 left-1/2 -translate-x-1/2 bg-white rounded-md shadow-lg z-50 hidden p-4 w-[90vw] max-w-[700px] max-h-[60vh] overflow-y-auto">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                    <!-- Kategori 125cc -->
+                    <div class="space-y-1">
+                        <h3 class="text-xs uppercase font-bold text-gray-500 mb-2 px-2">125 cc</h3>
+                        <a href="#" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                            <img src="Asset/Product/Lx 125/grey-materia-03.png" alt="Vespa LX 125" class="w-12 h-12 object-contain">
+                            <span class="text-sm text-gray-700">Vespa LX 125</span>
+                        </a>
+                    </div>
+                     <!-- Kategori 150cc -->
+                    <div class="space-y-1">
+                        <h3 class="text-xs uppercase font-bold text-gray-500 mb-2 px-2">150 cc</h3>
+                        <a href="halaman-produk.html" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                            <img src="Asset/Product/946 Snake/946-snake-01 (2).png" alt="Vespa 946 Snake" class="w-12 h-12 object-contain">
+                            <span class="text-sm text-gray-700">Vespa 946 Snake</span>
+                        </a>
+                        <a href="#" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                            <img src="Asset/Product/GTS 150 Classic/gtsc-beige-sabbia-01 (3).png" alt="Vespa GTS" class="w-12 h-12 object-contain">
+                            <span class="text-sm text-gray-700">Vespa GTS</span>
+                        </a>
+                        <a href="#" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                            <img src="Asset/Product/Sprint Officina/sprint-blu-officina-01 (3).png" alt="Vespa Sprint" class="w-12 h-12 object-contain">
+                            <span class="text-sm text-gray-700">Vespa Sprint</span>
+                        </a>
+                        <a href="#" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                            <img src="Asset/Product/Primavera 150/white-innocente-04.png" alt="Vespa Primavera" class="w-12 h-12 object-contain">
+                            <span class="text-sm text-gray-700">Primavera</span>
+                        </a>
+                    </div>
+                    <!-- Kategori 300cc -->
+                    <div class="space-y-1">
+                        <h3 class="text-xs uppercase font-bold text-gray-500 mb-2 px-2">300 cc</h3>
+                        <a href="#" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                            <img src="Asset/Product/GTS Super Tech/gtstgrey-quarzo-01 (3).png" alt="Vespa GTS Super Tech" class="w-12 h-12 object-contain">
+                            <span class="text-sm text-gray-700">Vespa GTS Super Tech</span>
+                        </a>
+                        <a href="#" class="flex items-center gap-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                            <img src="Asset/Product/GTV Officina/gtv-blu-officina-01 (3).png" alt="Vespa GTV" class="w-12 h-12 object-contain">
+                            <span class="text-sm text-gray-700">Vespa GTV</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </header>
 
         <!-- Product Detail Section -->
         <main class="mt-12">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
                 
-                <!-- Galeri Gambar Produk (EDIT DISINI)-->
-                <div class="bg-white p-4 rounded-lg shadow-lg sticky top-28">
-                    <img id="main-product-image" src="Asset/Product/GTV Officina/banner-1 (1).jpg" alt="Vespa GTV Officina" class="w-full h-auto object-contain rounded-md transition-all duration-300">
+                <!-- Galeri Gambar Produk -->
+                <div class="bg-white p-4 rounded-lg shadow-lg sticky top-32">
+                    <img id="main-product-image" src="Asset/Product/GTV Officina/gtv-blu-officina-01 (3).png" alt="Vespa GTV Officina 8" class="w-full h-auto object-contain rounded-md transition-all duration-300">
                     <!-- Galeri Thumbnail -->
-                    <div class="mt-4 grid grid-cols-4 gap-4">
-                        <img src="Asset/Product/GTV Officina/gtv-blu-officina-01 (1).png" alt="Thumbnail 1" class="product-thumbnail w-full h-24 object-contain cursor-pointer rounded-md border-2 border-transparent hover:border-green-500 transition-colors duration-300 thumbnail-active">
-                        <img src="Asset/Product/GTV Officina/gtv-blu-officina-01 (2).png" alt="Thumbnail 2" class="product-thumbnail w-full h-24 object-contain cursor-pointer rounded-md border-2 border-transparent hover:border-green-500 transition-colors duration-300">
-                        <img src="Asset/Product/GTV Officina/gtv-blu-officina-01 (3).png" alt="Thumbnail 3" class="product-thumbnail w-full h-24 object-contain cursor-pointer rounded-md border-2 border-transparent hover:border-green-500 transition-colors duration-300">
-                        <img src="Asset/Product/GTV Officina/gtv-blu-officina-01 (4).png" alt="Thumbnail 4" class="product-thumbnail w-full h-24 object-contain cursor-pointer rounded-md border-2 border-transparent hover:border-green-500 transition-colors duration-300">
-                        <img src="Asset/Product/GTV Officina/gtv-blu-officina-01 (5).png" alt="Thumbnail 5" class="product-thumbnail w-full h-24 object-contain cursor-pointer rounded-md border-2 border-transparent hover:border-green-500 transition-colors duration-300">
+                    <div class="mt-5 grid grid-cols-5 gap-5">
+                        <img id="thumb-1" src="Asset/Product/GTV Officina/gtv-blu-officina-01 (1).png" alt="Thumbnail 1" class="product-thumbnail w-full h-24 object-contain cursor-pointer rounded-md border-2 border-transparent hover:border-green-500 transition-colors duration-300 thumbnail-active">
+                        <img id="thumb-2" src="Asset/Product/GTV Officina/gtv-blu-officina-01 (2).png" alt="Thumbnail 2" class="product-thumbnail w-full h-24 object-contain cursor-pointer rounded-md border-2 border-transparent hover:border-green-500 transition-colors duration-300">
+                        <img id="thumb-3" src="Asset/Product/GTV Officina/gtv-blu-officina-01 (3).png" alt="Thumbnail 3" class="product-thumbnail w-full h-24 object-contain cursor-pointer rounded-md border-2 border-transparent hover:border-green-500 transition-colors duration-300">
+                        <img id="thumb-4" src="Asset/Product/GTV Officina/gtv-blu-officina-01 (4).png" alt="Thumbnail 4" class="product-thumbnail w-full h-24 object-contain cursor-pointer rounded-md border-2 border-transparent hover:border-green-500 transition-colors duration-300">
+                        <img id="thumb-5" src="Asset/Product/GTV Officina/gtv-blu-officina-01 (5).png" alt="Thumbnail 5" class="product-thumbnail w-full h-24 object-contain cursor-pointer rounded-md border-2 border-transparent hover:border-green-500 transition-colors duration-300">
+                    </div>
+                      <!-- Opsi Warna -->
+                    <div class="mt-6 border-t border-gray-200 pt-4">
+                        <h4 class="text-sm font-semibold text-gray-700 mb-3">Pilihan Warna:</h4>
+                        <div class="flex items-center space-x-3">
+                            <button class="color-option w-full flex items-center gap-3 p-2 rounded-lg border-2 border-transparent transition-colors duration-200"
+                                    data-main-image="Asset/Product/GTV Officina/gtv-blu-officina-01 (3).png"
+                                    data-thumb1="Asset/Product/GTV Officina/gtv-blu-officina-01 (1).png"
+                                    data-thumb2="Asset/Product/GTV Officina/gtv-blu-officina-01 (2).png"
+                                    data-thumb3="Asset/Product/GTV Officina/gtv-blu-officina-01 (3).png"
+                                    data-thumb4="Asset/Product/GTV Officina/gtv-blu-officina-01 (4).png"
+                                    data-thumb5="Asset/Product/GTV Officina/gtv-blu-officina-01 (5).png">
+                                <div class="w-6 h-6 rounded-full border border-gray-400 flex-shrink-0" style="background-color: #536879;"></div>
+                                <span class="text-sm font-medium text-gray-800">Iridescent Blue</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Informasi Produk (EDIT DISINI)-->
+                <!-- Informasi Produk -->
                 <div class="bg-white p-8 rounded-lg shadow-lg">
-                    <h1 class="text-4xl font-bold mb-3 text-green-700">Vespa 946 Snake</h1>
+                    <h1 class="text-4xl font-bold mb-3 text-green-700">Vespa GTV Officina 8</h1>
                     <p class="text-gray-700 mb-6">
-                        In the year of the Snake, the Vespa 946 Snake is born. This numbered limited edition blends masterful craftsmanship with Italian design. Inspired by the lunar calendar, it embodies the essence of this majestic creature, creating a collectible scooter that exudes enigmatic beauty.
+                        The Vespa Gtv Officina 8 combines tradition and character in a bold, understated design.
+                        The blue is inspired by the industrial machines from the workshop, with metal details showcasing the scooter’s dynamic silhouette.
                     </p>
+                                
+                    <!-- Blok Harga -->
+                    <div class="bg-gray-100 rounded-lg p-6 mb-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-lg text-gray-600">Harga</span>
+                            <span class="text-3xl font-bold text-green-700">Rp 250.000.000</span>
+                        </div>
+                        <p class="text-xs text-gray-500 text-right mb-4">OTR Jakarta (Perkiraan)</p>
+                        <a href="index.html#lokasi-kami" class="w-full text-center bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg transition-transform duration-300 inline-block transform hover:scale-105">
+                            Minta Penawaran
+                        </a>
+                    </div>
 
-                    <div class="border-t border-b border-gray-200 py-6 mb-6">
+                    <!-- Spesifikasi -->
+                    <div class="border-t border-gray-200 pt-6">
                         <h3 class="text-xl font-semibold mb-4">Spesifikasi Utama</h3>
                         <ul class="space-y-3 text-gray-600">
-                            <li class="flex justify-between"><span>Mesin:</span> <span class="font-medium text-gray-900">278cc</span></li>
-                            <li class="flex justify-between"><span>Sistem Pendingin:</span> <span class="font-medium text-gray-900">Liquid</span></li>
-                            <li class="flex justify-between"><span>Sistem Rem:</span> <span class="font-medium text-gray-900">Dual Channel ABS & ASR</span></li>
-                            <li class="flex justify-between"><span>Lampu Depan:</span> <span class="font-medium text-gray-900">Full LED Technology</span></li>
-                            <li class="flex justify-between"><span>Kapasitas Tangki:</span> <span class="font-medium text-gray-900">8.5 Liter</span></li>
+                            <li class="flex justify-between"><span>Mesin:</span> <span class="font-medium text-gray-900">150cc, 3-valve, silinder tunggal</span></li>
+                            <li class="flex justify-between"><span>Sistem Pendingin:</span> <span class="font-medium text-gray-900">Udara</span></li>
+                            <li class="flex justify-between"><span>Sistem Rem:</span> <span class="font-medium text-gray-900">ABS & ASR</span></li>
+                            <li class="flex justify-between"><span>Body:</span> <span class="font-medium text-gray-900">Monocoque Steel</span></li>
+                            <li class="flex justify-between"><span>Fitur:</span> <span class="font-medium text-gray-900">Edisi Terbatas, Detail Naga</span></li>
                         </ul>
                     </div>
                 </div>
             </div>
+
+            <!-- Bagian Fitur Unggulan -->
+            <section class="mt-16">
+                <h2 class="text-3xl font-bold text-center mb-8">Fitur Unggulan</h2>
+                <div class="swiper-container features-swiper relative px-8">
+                    <div class="swiper-wrapper items-start">
+                        <!-- Fitur 1 -->
+                        <div class="swiper-slide text-center">
+                            <div class="bg-white rounded-lg shadow-md w-28 h-28 mx-auto flex items-center justify-center p-2">
+                                <img src="https://placehold.co/100x100/FFFFFF/16a34a?text=LED" alt="Fitur 1" class="max-w-full max-h-full object-contain">
+                            </div>
+                            <p class="font-semibold text-xs mt-2">Lampu Full LED</p>
+                        </div>
+                        <!-- Fitur 2 -->
+                        <div class="swiper-slide text-center">
+                             <div class="bg-white rounded-lg shadow-md w-28 h-28 mx-auto flex items-center justify-center p-2">
+                                <img src="https://placehold.co/100x100/FFFFFF/16a34a?text=Naga" alt="Fitur 2" class="max-w-full max-h-full object-contain">
+                            </div>
+                            <p class="font-semibold text-xs mt-2">Grafis Naga Eksklusif</p>
+                        </div>
+                        <!-- Fitur 3 -->
+                        <div class="swiper-slide text-center">
+                            <div class="bg-white rounded-lg shadow-md w-28 h-28 mx-auto flex items-center justify-center p-2">
+                                <img src="https://placehold.co/100x100/FFFFFF/16a34a?text=ABS" alt="Fitur 3" class="max-w-full max-h-full object-contain">
+                            </div>
+                             <p class="font-semibold text-xs mt-2">Sistem Rem ABS</p>
+                        </div>
+                         <!-- Fitur 4 -->
+                        <div class="swiper-slide text-center">
+                            <div class="bg-white rounded-lg shadow-md w-28 h-28 mx-auto flex items-center justify-center p-2">
+                                <img src="https://placehold.co/100x100/FFFFFF/16a34a?text=Digital" alt="Fitur 4" class="max-w-full max-h-full object-contain">
+                            </div>
+                             <p class="font-semibold text-xs mt-2">Panel Instrumen Digital</p>
+                        </div>
+                         <!-- Fitur 5 (Tambahan) -->
+                        <div class="swiper-slide text-center">
+                             <div class="bg-white rounded-lg shadow-md w-28 h-28 mx-auto flex items-center justify-center p-2">
+                                <img src="https://placehold.co/100x100/FFFFFF/16a34a?text=Kulit" alt="Fitur 5" class="max-w-full max-h-full object-contain">
+                            </div>
+                             <p class="font-semibold text-xs mt-2">Jok Kulit Asli</p>
+                        </div>
+                    </div>
+                    <!-- Navigasi Slider Fitur -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </section>
         </main>
 
         <!-- Footer / Bagian Bawah -->
@@ -113,6 +234,7 @@
 
     </div>
 
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // --- Logika Galeri Thumbnail ---
@@ -127,21 +249,67 @@
             });
 
             // --- Logika Menu Dropdown Produk (Click) ---
-            const productMenu = document.getElementById('product-menu');
             const productMenuButton = document.getElementById('product-menu-button');
             const productMenuDropdown = document.getElementById('product-menu-dropdown');
-            if (productMenu && productMenuButton && productMenuDropdown) {
+            if (productMenuButton && productMenuDropdown) {
                 productMenuButton.addEventListener('click', (event) => {
                     event.stopPropagation();
                     productMenuDropdown.classList.toggle('hidden');
                 });
 
                 window.addEventListener('click', (event) => {
-                    if (!productMenu.contains(event.target) && !productMenuDropdown.classList.contains('hidden')) {
+                    if (!productMenuButton.contains(event.target) && !productMenuDropdown.contains(event.target) && !productMenuDropdown.classList.contains('hidden')) {
                         productMenuDropdown.classList.add('hidden');
                     }
                 });
             }
+
+             // --- Logika Opsi Warna ---
+            const colorOptions = document.querySelectorAll('.color-option');
+            const thumb1 = document.getElementById('thumb-1');
+            const thumb2 = document.getElementById('thumb-2');
+            const thumb3 = document.getElementById('thumb-3');
+            const thumb4 = document.getElementById('thumb-4');
+            const thumb5 = document.getElementById('thumb-5');
+
+            colorOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    colorOptions.forEach(o => o.classList.remove('ring-2', 'ring-offset-2', 'ring-green-600'));
+                    this.classList.add('ring-2', 'ring-offset-2', 'ring-green-600');
+
+                    const newMainImage = this.dataset.mainImage;
+                    mainImage.src = newMainImage;
+                    
+                    if(thumb1) thumb1.src = this.dataset.thumb1;
+                    if(thumb2) thumb2.src = this.dataset.thumb2;
+                    if(thumb3) thumb3.src = this.dataset.thumb3;
+                    if(thumb4) thumb4.src = this.dataset.thumb4;
+                    if(thumb4) thumb5.src = this.dataset.thumb5;
+
+                    // Reset active thumbnail to the first one after color change
+                    thumbnails.forEach(t => t.classList.remove('thumbnail-active'));
+                    if (thumb1) thumb1.classList.add('thumbnail-active');
+                });
+            });
+
+            // --- Inisialisasi Slider Fitur ---
+            var featuresSwiper = new Swiper('.features-swiper', {
+                loop: true,
+                spaceBetween: 16,
+                slidesPerView: 2,
+                navigation: {
+                    nextEl: '.features-swiper .swiper-button-next',
+                    prevEl: '.features-swiper .swiper-button-prev',
+                },
+                breakpoints: {
+                    768: {
+                        slidesPerView: 4,
+                    },
+                    1024: {
+                        slidesPerView: 5,
+                    },
+                }
+            });
         });
     </script>
 
